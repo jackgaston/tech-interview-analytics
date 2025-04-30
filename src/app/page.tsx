@@ -51,25 +51,25 @@ export default async function Home() {
       {/* Hero Section */}
       <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
         <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-8">
-          Modern CRM Dashboard
+          CRM Dashboard Demo
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-          Streamline your customer relationships with our powerful, intuitive CRM solution.
-          Built with Next.js, Prisma, and TypeScript for optimal performance.
+          Experience the power of our CRM solution. This is a demo showcasing the core features 
+          and capabilities. Contact us to get a customized version for your business.
         </p>
         <div className="flex gap-4 justify-center">
           <Link
-            href="/auth/signin"
+            href="/dashboard"
             className="rounded-full bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
           >
-            Get Started
+            View Demo
           </Link>
-          <Link
-            href="/auth/demo"
-            className="rounded-full border border-gray-300 px-8 py-3 font-medium hover:bg-gray-50 transition-colors"
+          <a
+            href="mailto:contact@example.com"
+            className="rounded-full bg-gray-800 px-8 py-3 text-white font-medium hover:bg-gray-900 transition-colors"
           >
-            Try Demo
-          </Link>
+            Contact Sales
+          </a>
         </div>
       </header>
 
