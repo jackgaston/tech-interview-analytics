@@ -16,25 +16,31 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Customer, CustomerStatus } from '@/types';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-// Define status color mappings for visual representation
-const statusColors: Record<CustomerStatus, string> = {
-  PROSPECT: 'bg-yellow-100 text-yellow-800',
-  ACTIVE: 'bg-green-100 text-green-800',
-  LOST: 'bg-red-100 text-red-800',
-};
+interface Problem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  status: string;
+  dateSolved?: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export default function Dashboard() {
   const router = useRouter();
   
   // State management for customer data and UI
   const [searchTerm, setSearchTerm] = useState('');
-  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [problems, setProblems] = useState<Problem[]>([]);
+  const [showModal, setShowModal] = useState(false);
+  const [modalProblem, setModalProblem] = useState<Problem | null>(null);
 
   // Fetch customers on component mount
   useEffect(() => {
@@ -57,12 +63,92 @@ export default function Dashboard() {
     fetchCustomers();
   }, []);
 
+  // Fetch problems
+  useEffect(() => {
+    fetchProblems();
+  }, []);
+
+  async function fetchProblems() {
+    setLoading(true);
+    const res = await fetch("/api/problems");
+    if (res.ok) {
+      setProblems(await res.json());
+    } else {
+      setError("Failed to load problems");
+    }
+    setLoading(false);
+  }
+
   // Filter customers based on search term
   const filteredCustomers = customers.filter((customer) =>
     customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     customer.company?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  function openAddModal() {
+    setModalProblem(null);
+    setShowModal(true);
+  }
+
+  function openEditModal(problem: Problem) {
+    setModalProblem(problem);
+    setShowModal(true);
+  }
+
+  async function handleDelete(id: string) {
+    if (!confirm("Delete this problem?")) return;
+    const res = await fetch(`/api/problems/${id}`, { method: "DELETE" });
+    if (res.ok) {
+      setProblems(problems.filter(p => p.id !== id));
+    } else {
+      setError("Failed to delete problem");
+    }
+  }
+
+  function closeModal() {
+    setShowModal(false);
+    setModalProblem(null);
+  }
+
+  async function handleModalSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    let res;
+    if (modalProblem) {
+      // Edit
+      res = await fetch(`/api/problems/${modalProblem.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } else {
+      // Add
+      res = await fetch("/api/problems", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    }
+    if (res.ok) {
+      fetchProblems();
+      closeModal();
+    } else {
+      setError("Failed to save problem");
+    }
+  }
+
+  // Analytics calculations (placeholder)
+  const solvedCount = problems.filter(p => p.status === "SOLVED").length;
+  const unsolvedCount = problems.filter(p => p.status === "UNSOLVED").length;
+  const reviewCount = problems.filter(p => p.status === "REVIEW").length;
+  const categories = Array.from(new Set(problems.map(p => p.category)));
+  const solvedByCategory = categories.map(cat => ({
+    category: cat,
+    count: problems.filter(p => p.category === cat && p.status === "SOLVED").length,
+  }));
 
   // Loading state UI
   if (loading) {
@@ -201,6 +287,105 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <div className="max-w-4xl mx-auto p-6">
+        <h1 className="text-3xl font-bold mb-6">Tech Interview Prep Dashboard</h1>
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <div className="font-semibold">Analytics</div>
+            <div className="flex gap-6 mt-2">
+              <div className="bg-green-100 px-4 py-2 rounded">Solved: {solvedCount}</div>
+              <div className="bg-yellow-100 px-4 py-2 rounded">Review: {reviewCount}</div>
+              <div className="bg-red-100 px-4 py-2 rounded">Unsolved: {unsolvedCount}</div>
+            </div>
+            <div className="mt-4">
+              <div className="font-medium mb-1">Solved by Category</div>
+              <div className="flex flex-wrap gap-2">
+                {solvedByCategory.map(c => (
+                  <div key={c.category} className="bg-blue-100 px-3 py-1 rounded text-sm">
+                    {c.category}: {c.count}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-4 italic text-gray-500">[Streaks and charts coming soon]</div>
+          </div>
+          <button
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            onClick={openAddModal}
+          >
+            + Add Problem
+          </button>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border rounded">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="px-4 py-2 text-left">Title</th>
+                <th className="px-4 py-2 text-left">Category</th>
+                <th className="px-4 py-2 text-left">Status</th>
+                <th className="px-4 py-2 text-left">Date Solved</th>
+                <th className="px-4 py-2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading ? (
+                <tr><td colSpan={5} className="text-center py-8">Loading...</td></tr>
+              ) : problems.length === 0 ? (
+                <tr><td colSpan={5} className="text-center py-8">No problems yet.</td></tr>
+              ) : problems.map(problem => (
+                <tr key={problem.id} className="border-t">
+                  <td className="px-4 py-2">{problem.title}</td>
+                  <td className="px-4 py-2">{problem.category}</td>
+                  <td className="px-4 py-2">{problem.status}</td>
+                  <td className="px-4 py-2">{problem.dateSolved ? new Date(problem.dateSolved).toLocaleDateString() : '-'}</td>
+                  <td className="px-4 py-2 flex gap-2">
+                    <button className="text-blue-600 underline" onClick={() => openEditModal(problem)}>Edit</button>
+                    <button className="text-red-600 underline" onClick={() => handleDelete(problem.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded shadow-lg w-full max-w-md relative">
+            <button className="absolute top-2 right-2 text-gray-400 hover:text-gray-600" onClick={closeModal}>&times;</button>
+            <h2 className="text-xl font-bold mb-4">{modalProblem ? "Edit Problem" : "Add Problem"}</h2>
+            <form onSubmit={handleModalSubmit} className="space-y-4">
+              <div>
+                <label className="block mb-1">Title</label>
+                <input name="title" defaultValue={modalProblem?.title || ""} className="w-full border px-3 py-2 rounded" required />
+              </div>
+              <div>
+                <label className="block mb-1">Description</label>
+                <textarea name="description" defaultValue={modalProblem?.description || ""} className="w-full border px-3 py-2 rounded" required />
+              </div>
+              <div>
+                <label className="block mb-1">Category</label>
+                <input name="category" defaultValue={modalProblem?.category || ""} className="w-full border px-3 py-2 rounded" required />
+              </div>
+              <div>
+                <label className="block mb-1">Status</label>
+                <select name="status" defaultValue={modalProblem?.status || "UNSOLVED"} className="w-full border px-3 py-2 rounded">
+                  <option value="UNSOLVED">Unsolved</option>
+                  <option value="SOLVED">Solved</option>
+                  <option value="REVIEW">Review</option>
+                </select>
+              </div>
+              <div>
+                <label className="block mb-1">Date Solved</label>
+                <input name="dateSolved" type="date" defaultValue={modalProblem?.dateSolved ? modalProblem.dateSolved.slice(0,10) : ""} className="w-full border px-3 py-2 rounded" />
+              </div>
+              <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">{modalProblem ? "Save Changes" : "Add Problem"}</button>
+              {error && <div className="text-red-600 mt-2">{error}</div>}
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 } 

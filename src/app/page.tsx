@@ -1,20 +1,17 @@
 /**
  * Home Page Component
  * 
- * This is the landing page of the CRM dashboard. It serves as the entry point
- * for users and provides authentication flow redirection.
+ * This is the landing page of the CRM dashboard demo. It serves as the entry point
+ * for users to explore the demo features.
  * 
  * Features:
  * - Responsive design with Tailwind CSS
- * - Authentication status check
- * - Automatic redirect to dashboard for authenticated users
+ * - Direct access to demo features
  * - Modern UI with custom animations
  */
 
 import Image from "next/image";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 // Component for feature highlights
 const FeatureCard = ({
@@ -37,19 +34,14 @@ const FeatureCard = ({
   </div>
 );
 
-export default async function Home() {
-  // Check authentication status
-  const session = await getServerSession();
-  
-  // Redirect authenticated users to dashboard
-  if (session) {
-    redirect("/dashboard");
-  }
-
+export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
+        <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+          Demo Mode
+        </div>
         <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-8">
           CRM Dashboard Demo
         </h1>
@@ -59,10 +51,10 @@ export default async function Home() {
         </p>
         <div className="flex gap-4 justify-center">
           <Link
-            href="/dashboard"
+            href="/dashboard/customers"
             className="rounded-full bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
           >
-            View Demo
+            Try Demo
           </Link>
           <a
             href="mailto:contact@example.com"

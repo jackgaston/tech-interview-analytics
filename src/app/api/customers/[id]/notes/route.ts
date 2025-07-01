@@ -1,48 +1,53 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { PrismaClient } from '@prisma/client';
+import { Note } from '@/types';
+import { demoCustomers } from '../../../data';
 
-const prisma = new PrismaClient();
+export async function POST(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const customer = demoCustomers.find(c => c.id === params.id);
+    
+    if (!customer) {
+      return new NextResponse(null, { status: 404 });
+    }
 
-interface RouteParams {
-  params: {
-    id: string;
-  };
+    const { content } = await request.json();
+    
+    if (!content) {
+      return new NextResponse(null, { status: 400 });
+    }
+
+    const newNote: Note = {
+      id: `note_${Date.now()}`,
+      content,
+      createdAt: new Date().toISOString()
+    };
+
+    customer.notes.push(newNote);
+    
+    return NextResponse.json(newNote);
+  } catch (error) {
+    console.error('Error adding note:', error);
+    return new NextResponse(null, { status: 500 });
+  }
 }
 
-export async function POST(request: Request, { params }: RouteParams) {
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
-    const session = await getServerSession();
-
-    if (!session?.user?.email) {
-      return new NextResponse('Unauthorized', { status: 401 });
+    const customer = demoCustomers.find(c => c.id === params.id);
+    
+    if (!customer) {
+      return new NextResponse(null, { status: 404 });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-    });
-
-    if (!user) {
-      return new NextResponse('User not found', { status: 404 });
-    }
-
-    const data = await request.json();
-    const { content } = data;
-
-    const note = await prisma.note.create({
-      data: {
-        content,
-        customerId: params.id,
-        userId: user.id,
-      },
-      include: {
-        createdBy: true,
-      },
-    });
-
-    return NextResponse.json(note);
+    return NextResponse.json(customer.notes);
   } catch (error) {
-    console.error('Error creating note:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    console.error('Error fetching notes:', error);
+    return new NextResponse(null, { status: 500 });
   }
 } 

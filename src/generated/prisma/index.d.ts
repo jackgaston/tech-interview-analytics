@@ -19,20 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Customer
+ * Model Problem
  * 
  */
-export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
-/**
- * Model Note
- * 
- */
-export type Note = $Result.DefaultSelection<Prisma.$NotePayload>
-/**
- * Model Tag
- * 
- */
-export type Tag = $Result.DefaultSelection<Prisma.$TagPayload>
+export type Problem = $Result.DefaultSelection<Prisma.$ProblemPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -170,34 +160,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.customer`: Exposes CRUD operations for the **Customer** model.
+   * `prisma.problem`: Exposes CRUD operations for the **Problem** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Customers
-    * const customers = await prisma.customer.findMany()
+    * // Fetch zero or more Problems
+    * const problems = await prisma.problem.findMany()
     * ```
     */
-  get customer(): Prisma.CustomerDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.note`: Exposes CRUD operations for the **Note** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Notes
-    * const notes = await prisma.note.findMany()
-    * ```
-    */
-  get note(): Prisma.NoteDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.tag`: Exposes CRUD operations for the **Tag** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Tags
-    * const tags = await prisma.tag.findMany()
-    * ```
-    */
-  get tag(): Prisma.TagDelegate<ExtArgs, ClientOptions>;
+  get problem(): Prisma.ProblemDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -639,9 +609,7 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Customer: 'Customer',
-    Note: 'Note',
-    Tag: 'Tag'
+    Problem: 'Problem'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +628,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "customer" | "note" | "tag"
+      modelProps: "user" | "problem"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -738,225 +706,77 @@ export namespace Prisma {
           }
         }
       }
-      Customer: {
-        payload: Prisma.$CustomerPayload<ExtArgs>
-        fields: Prisma.CustomerFieldRefs
+      Problem: {
+        payload: Prisma.$ProblemPayload<ExtArgs>
+        fields: Prisma.ProblemFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CustomerFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+            args: Prisma.ProblemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CustomerFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           findFirst: {
-            args: Prisma.CustomerFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+            args: Prisma.ProblemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CustomerFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           findMany: {
-            args: Prisma.CustomerFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.ProblemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>[]
           }
           create: {
-            args: Prisma.CustomerCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           createMany: {
-            args: Prisma.CustomerCreateManyArgs<ExtArgs>
+            args: Prisma.ProblemCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CustomerCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.ProblemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>[]
           }
           delete: {
-            args: Prisma.CustomerDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           update: {
-            args: Prisma.CustomerUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           deleteMany: {
-            args: Prisma.CustomerDeleteManyArgs<ExtArgs>
+            args: Prisma.ProblemDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CustomerUpdateManyArgs<ExtArgs>
+            args: Prisma.ProblemUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CustomerUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+            args: Prisma.ProblemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>[]
           }
           upsert: {
-            args: Prisma.CustomerUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+            args: Prisma.ProblemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProblemPayload>
           }
           aggregate: {
-            args: Prisma.CustomerAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCustomer>
+            args: Prisma.ProblemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProblem>
           }
           groupBy: {
-            args: Prisma.CustomerGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CustomerGroupByOutputType>[]
+            args: Prisma.ProblemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProblemGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CustomerCountArgs<ExtArgs>
-            result: $Utils.Optional<CustomerCountAggregateOutputType> | number
-          }
-        }
-      }
-      Note: {
-        payload: Prisma.$NotePayload<ExtArgs>
-        fields: Prisma.NoteFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.NoteFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.NoteFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          findFirst: {
-            args: Prisma.NoteFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.NoteFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          findMany: {
-            args: Prisma.NoteFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
-          }
-          create: {
-            args: Prisma.NoteCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          createMany: {
-            args: Prisma.NoteCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.NoteCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
-          }
-          delete: {
-            args: Prisma.NoteDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          update: {
-            args: Prisma.NoteUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          deleteMany: {
-            args: Prisma.NoteDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.NoteUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.NoteUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
-          }
-          upsert: {
-            args: Prisma.NoteUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
-          }
-          aggregate: {
-            args: Prisma.NoteAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateNote>
-          }
-          groupBy: {
-            args: Prisma.NoteGroupByArgs<ExtArgs>
-            result: $Utils.Optional<NoteGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.NoteCountArgs<ExtArgs>
-            result: $Utils.Optional<NoteCountAggregateOutputType> | number
-          }
-        }
-      }
-      Tag: {
-        payload: Prisma.$TagPayload<ExtArgs>
-        fields: Prisma.TagFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.TagFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.TagFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          findFirst: {
-            args: Prisma.TagFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.TagFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          findMany: {
-            args: Prisma.TagFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>[]
-          }
-          create: {
-            args: Prisma.TagCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          createMany: {
-            args: Prisma.TagCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.TagCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>[]
-          }
-          delete: {
-            args: Prisma.TagDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          update: {
-            args: Prisma.TagUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          deleteMany: {
-            args: Prisma.TagDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.TagUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.TagUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>[]
-          }
-          upsert: {
-            args: Prisma.TagUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TagPayload>
-          }
-          aggregate: {
-            args: Prisma.TagAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTag>
-          }
-          groupBy: {
-            args: Prisma.TagGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TagGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.TagCountArgs<ExtArgs>
-            result: $Utils.Optional<TagCountAggregateOutputType> | number
+            args: Prisma.ProblemCountArgs<ExtArgs>
+            result: $Utils.Optional<ProblemCountAggregateOutputType> | number
           }
         }
       }
@@ -1045,9 +865,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    customer?: CustomerOmit
-    note?: NoteOmit
-    tag?: TagOmit
+    problem?: ProblemOmit
   }
 
   /* Types for Logging */
@@ -1142,13 +960,11 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    customers: number
-    notes: number
+    problems: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customers?: boolean | UserCountOutputTypeCountCustomersArgs
-    notes?: boolean | UserCountOutputTypeCountNotesArgs
+    problems?: boolean | UserCountOutputTypeCountProblemsArgs
   }
 
   // Custom InputTypes
@@ -1165,86 +981,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CustomerWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountNotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NoteWhereInput
-  }
-
-
-  /**
-   * Count Type CustomerCountOutputType
-   */
-
-  export type CustomerCountOutputType = {
-    notes: number
-    tags: number
-  }
-
-  export type CustomerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    notes?: boolean | CustomerCountOutputTypeCountNotesArgs
-    tags?: boolean | CustomerCountOutputTypeCountTagsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * CustomerCountOutputType without action
-   */
-  export type CustomerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CustomerCountOutputType
-     */
-    select?: CustomerCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * CustomerCountOutputType without action
-   */
-  export type CustomerCountOutputTypeCountNotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NoteWhereInput
-  }
-
-  /**
-   * CustomerCountOutputType without action
-   */
-  export type CustomerCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TagWhereInput
-  }
-
-
-  /**
-   * Count Type TagCountOutputType
-   */
-
-  export type TagCountOutputType = {
-    customers: number
-  }
-
-  export type TagCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customers?: boolean | TagCountOutputTypeCountCustomersArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * TagCountOutputType without action
-   */
-  export type TagCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TagCountOutputType
-     */
-    select?: TagCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * TagCountOutputType without action
-   */
-  export type TagCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CustomerWhereInput
+  export type UserCountOutputTypeCountProblemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProblemWhereInput
   }
 
 
@@ -1267,7 +1005,6 @@ export namespace Prisma {
     name: string | null
     email: string | null
     password: string | null
-    role: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1277,7 +1014,6 @@ export namespace Prisma {
     name: string | null
     email: string | null
     password: string | null
-    role: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1287,7 +1023,6 @@ export namespace Prisma {
     name: number
     email: number
     password: number
-    role: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1299,7 +1034,6 @@ export namespace Prisma {
     name?: true
     email?: true
     password?: true
-    role?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1309,7 +1043,6 @@ export namespace Prisma {
     name?: true
     email?: true
     password?: true
-    role?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1319,7 +1052,6 @@ export namespace Prisma {
     name?: true
     email?: true
     password?: true
-    role?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1402,7 +1134,6 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    role: string
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1429,11 +1160,9 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     password?: boolean
-    role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    customers?: boolean | User$customersArgs<ExtArgs>
-    notes?: boolean | User$notesArgs<ExtArgs>
+    problems?: boolean | User$problemsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1442,7 +1171,6 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     password?: boolean
-    role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1452,7 +1180,6 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     password?: boolean
-    role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1462,15 +1189,13 @@ export namespace Prisma {
     name?: boolean
     email?: boolean
     password?: boolean
-    role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customers?: boolean | User$customersArgs<ExtArgs>
-    notes?: boolean | User$notesArgs<ExtArgs>
+    problems?: boolean | User$problemsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1479,15 +1204,13 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      customers: Prisma.$CustomerPayload<ExtArgs>[]
-      notes: Prisma.$NotePayload<ExtArgs>[]
+      problems: Prisma.$ProblemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       email: string
       password: string
-      role: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1884,8 +1607,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    customers<T extends User$customersArgs<ExtArgs> = {}>(args?: Subset<T, User$customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    notes<T extends User$notesArgs<ExtArgs> = {}>(args?: Subset<T, User$notesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    problems<T extends User$problemsArgs<ExtArgs> = {}>(args?: Subset<T, User$problemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1919,7 +1641,6 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly role: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -2308,51 +2029,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.customers
+   * User.problems
    */
-  export type User$customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$problemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
-    where?: CustomerWhereInput
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
-    cursor?: CustomerWhereUniqueInput
+    include?: ProblemInclude<ExtArgs> | null
+    where?: ProblemWhereInput
+    orderBy?: ProblemOrderByWithRelationInput | ProblemOrderByWithRelationInput[]
+    cursor?: ProblemWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
-  }
-
-  /**
-   * User.notes
-   */
-  export type User$notesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    where?: NoteWhereInput
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    cursor?: NoteWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+    distinct?: ProblemScalarFieldEnum | ProblemScalarFieldEnum[]
   }
 
   /**
@@ -2375,46 +2072,46 @@ export namespace Prisma {
 
 
   /**
-   * Model Customer
+   * Model Problem
    */
 
-  export type AggregateCustomer = {
-    _count: CustomerCountAggregateOutputType | null
-    _min: CustomerMinAggregateOutputType | null
-    _max: CustomerMaxAggregateOutputType | null
+  export type AggregateProblem = {
+    _count: ProblemCountAggregateOutputType | null
+    _min: ProblemMinAggregateOutputType | null
+    _max: ProblemMaxAggregateOutputType | null
   }
 
-  export type CustomerMinAggregateOutputType = {
+  export type ProblemMinAggregateOutputType = {
     id: string | null
-    name: string | null
-    email: string | null
-    phone: string | null
-    company: string | null
+    title: string | null
+    description: string | null
+    category: string | null
     status: string | null
+    dateSolved: Date | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type CustomerMaxAggregateOutputType = {
+  export type ProblemMaxAggregateOutputType = {
     id: string | null
-    name: string | null
-    email: string | null
-    phone: string | null
-    company: string | null
+    title: string | null
+    description: string | null
+    category: string | null
     status: string | null
+    dateSolved: Date | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type CustomerCountAggregateOutputType = {
+  export type ProblemCountAggregateOutputType = {
     id: number
-    name: number
-    email: number
-    phone: number
-    company: number
+    title: number
+    description: number
+    category: number
     status: number
+    dateSolved: number
     userId: number
     createdAt: number
     updatedAt: number
@@ -2422,359 +2119,351 @@ export namespace Prisma {
   }
 
 
-  export type CustomerMinAggregateInputType = {
+  export type ProblemMinAggregateInputType = {
     id?: true
-    name?: true
-    email?: true
-    phone?: true
-    company?: true
+    title?: true
+    description?: true
+    category?: true
     status?: true
+    dateSolved?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type CustomerMaxAggregateInputType = {
+  export type ProblemMaxAggregateInputType = {
     id?: true
-    name?: true
-    email?: true
-    phone?: true
-    company?: true
+    title?: true
+    description?: true
+    category?: true
     status?: true
+    dateSolved?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type CustomerCountAggregateInputType = {
+  export type ProblemCountAggregateInputType = {
     id?: true
-    name?: true
-    email?: true
-    phone?: true
-    company?: true
+    title?: true
+    description?: true
+    category?: true
     status?: true
+    dateSolved?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type CustomerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Customer to aggregate.
+     * Filter which Problem to aggregate.
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Problems to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: ProblemOrderByWithRelationInput | ProblemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: ProblemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Problems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Problems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Customers
+     * Count returned Problems
     **/
-    _count?: true | CustomerCountAggregateInputType
+    _count?: true | ProblemCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CustomerMinAggregateInputType
+    _min?: ProblemMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CustomerMaxAggregateInputType
+    _max?: ProblemMaxAggregateInputType
   }
 
-  export type GetCustomerAggregateType<T extends CustomerAggregateArgs> = {
-        [P in keyof T & keyof AggregateCustomer]: P extends '_count' | 'count'
+  export type GetProblemAggregateType<T extends ProblemAggregateArgs> = {
+        [P in keyof T & keyof AggregateProblem]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCustomer[P]>
-      : GetScalarType<T[P], AggregateCustomer[P]>
+        : GetScalarType<T[P], AggregateProblem[P]>
+      : GetScalarType<T[P], AggregateProblem[P]>
   }
 
 
 
 
-  export type CustomerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CustomerWhereInput
-    orderBy?: CustomerOrderByWithAggregationInput | CustomerOrderByWithAggregationInput[]
-    by: CustomerScalarFieldEnum[] | CustomerScalarFieldEnum
-    having?: CustomerScalarWhereWithAggregatesInput
+  export type ProblemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProblemWhereInput
+    orderBy?: ProblemOrderByWithAggregationInput | ProblemOrderByWithAggregationInput[]
+    by: ProblemScalarFieldEnum[] | ProblemScalarFieldEnum
+    having?: ProblemScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CustomerCountAggregateInputType | true
-    _min?: CustomerMinAggregateInputType
-    _max?: CustomerMaxAggregateInputType
+    _count?: ProblemCountAggregateInputType | true
+    _min?: ProblemMinAggregateInputType
+    _max?: ProblemMaxAggregateInputType
   }
 
-  export type CustomerGroupByOutputType = {
+  export type ProblemGroupByOutputType = {
     id: string
-    name: string
-    email: string
-    phone: string | null
-    company: string | null
+    title: string
+    description: string
+    category: string
     status: string
+    dateSolved: Date | null
     userId: string
     createdAt: Date
     updatedAt: Date
-    _count: CustomerCountAggregateOutputType | null
-    _min: CustomerMinAggregateOutputType | null
-    _max: CustomerMaxAggregateOutputType | null
+    _count: ProblemCountAggregateOutputType | null
+    _min: ProblemMinAggregateOutputType | null
+    _max: ProblemMaxAggregateOutputType | null
   }
 
-  type GetCustomerGroupByPayload<T extends CustomerGroupByArgs> = Prisma.PrismaPromise<
+  type GetProblemGroupByPayload<T extends ProblemGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CustomerGroupByOutputType, T['by']> &
+      PickEnumerable<ProblemGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CustomerGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ProblemGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CustomerGroupByOutputType[P]>
-            : GetScalarType<T[P], CustomerGroupByOutputType[P]>
+              : GetScalarType<T[P], ProblemGroupByOutputType[P]>
+            : GetScalarType<T[P], ProblemGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProblemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    email?: boolean
-    phone?: boolean
-    company?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
     status?: boolean
+    dateSolved?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
-    notes?: boolean | Customer$notesArgs<ExtArgs>
-    tags?: boolean | Customer$tagsArgs<ExtArgs>
-    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["customer"]>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["problem"]>
 
-  export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProblemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    email?: boolean
-    phone?: boolean
-    company?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
     status?: boolean
+    dateSolved?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["customer"]>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["problem"]>
 
-  export type CustomerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProblemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    email?: boolean
-    phone?: boolean
-    company?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
     status?: boolean
+    dateSolved?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["customer"]>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["problem"]>
 
-  export type CustomerSelectScalar = {
+  export type ProblemSelectScalar = {
     id?: boolean
-    name?: boolean
-    email?: boolean
-    phone?: boolean
-    company?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
     status?: boolean
+    dateSolved?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "company" | "status" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["customer"]>
-  export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
-    notes?: boolean | Customer$notesArgs<ExtArgs>
-    tags?: boolean | Customer$tagsArgs<ExtArgs>
-    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
+  export type ProblemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "category" | "status" | "dateSolved" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["problem"]>
+  export type ProblemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
+  export type ProblemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type CustomerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assignedTo?: boolean | UserDefaultArgs<ExtArgs>
+  export type ProblemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Customer"
+  export type $ProblemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Problem"
     objects: {
-      assignedTo: Prisma.$UserPayload<ExtArgs>
-      notes: Prisma.$NotePayload<ExtArgs>[]
-      tags: Prisma.$TagPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
-      email: string
-      phone: string | null
-      company: string | null
+      title: string
+      description: string
+      category: string
       status: string
+      dateSolved: Date | null
       userId: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["customer"]>
+    }, ExtArgs["result"]["problem"]>
     composites: {}
   }
 
-  type CustomerGetPayload<S extends boolean | null | undefined | CustomerDefaultArgs> = $Result.GetResult<Prisma.$CustomerPayload, S>
+  type ProblemGetPayload<S extends boolean | null | undefined | ProblemDefaultArgs> = $Result.GetResult<Prisma.$ProblemPayload, S>
 
-  type CustomerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CustomerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CustomerCountAggregateInputType | true
+  type ProblemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProblemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProblemCountAggregateInputType | true
     }
 
-  export interface CustomerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Customer'], meta: { name: 'Customer' } }
+  export interface ProblemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Problem'], meta: { name: 'Problem' } }
     /**
-     * Find zero or one Customer that matches the filter.
-     * @param {CustomerFindUniqueArgs} args - Arguments to find a Customer
+     * Find zero or one Problem that matches the filter.
+     * @param {ProblemFindUniqueArgs} args - Arguments to find a Problem
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findUnique({
+     * // Get one Problem
+     * const problem = await prisma.problem.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CustomerFindUniqueArgs>(args: SelectSubset<T, CustomerFindUniqueArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ProblemFindUniqueArgs>(args: SelectSubset<T, ProblemFindUniqueArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Customer that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Problem that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CustomerFindUniqueOrThrowArgs} args - Arguments to find a Customer
+     * @param {ProblemFindUniqueOrThrowArgs} args - Arguments to find a Problem
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findUniqueOrThrow({
+     * // Get one Problem
+     * const problem = await prisma.problem.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CustomerFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ProblemFindUniqueOrThrowArgs>(args: SelectSubset<T, ProblemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer that matches the filter.
+     * Find the first Problem that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindFirstArgs} args - Arguments to find a Customer
+     * @param {ProblemFindFirstArgs} args - Arguments to find a Problem
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findFirst({
+     * // Get one Problem
+     * const problem = await prisma.problem.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CustomerFindFirstArgs>(args?: SelectSubset<T, CustomerFindFirstArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ProblemFindFirstArgs>(args?: SelectSubset<T, ProblemFindFirstArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer that matches the filter or
+     * Find the first Problem that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindFirstOrThrowArgs} args - Arguments to find a Customer
+     * @param {ProblemFindFirstOrThrowArgs} args - Arguments to find a Problem
      * @example
-     * // Get one Customer
-     * const customer = await prisma.customer.findFirstOrThrow({
+     * // Get one Problem
+     * const problem = await prisma.problem.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CustomerFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ProblemFindFirstOrThrowArgs>(args?: SelectSubset<T, ProblemFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Customers that matches the filter.
+     * Find zero or more Problems that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ProblemFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Customers
-     * const customers = await prisma.customer.findMany()
+     * // Get all Problems
+     * const problems = await prisma.problem.findMany()
      * 
-     * // Get first 10 Customers
-     * const customers = await prisma.customer.findMany({ take: 10 })
+     * // Get first 10 Problems
+     * const problems = await prisma.problem.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const customerWithIdOnly = await prisma.customer.findMany({ select: { id: true } })
+     * const problemWithIdOnly = await prisma.problem.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CustomerFindManyArgs>(args?: SelectSubset<T, CustomerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ProblemFindManyArgs>(args?: SelectSubset<T, ProblemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Customer.
-     * @param {CustomerCreateArgs} args - Arguments to create a Customer.
+     * Create a Problem.
+     * @param {ProblemCreateArgs} args - Arguments to create a Problem.
      * @example
-     * // Create one Customer
-     * const Customer = await prisma.customer.create({
+     * // Create one Problem
+     * const Problem = await prisma.problem.create({
      *   data: {
-     *     // ... data to create a Customer
+     *     // ... data to create a Problem
      *   }
      * })
      * 
      */
-    create<T extends CustomerCreateArgs>(args: SelectSubset<T, CustomerCreateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ProblemCreateArgs>(args: SelectSubset<T, ProblemCreateArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Customers.
-     * @param {CustomerCreateManyArgs} args - Arguments to create many Customers.
+     * Create many Problems.
+     * @param {ProblemCreateManyArgs} args - Arguments to create many Problems.
      * @example
-     * // Create many Customers
-     * const customer = await prisma.customer.createMany({
+     * // Create many Problems
+     * const problem = await prisma.problem.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CustomerCreateManyArgs>(args?: SelectSubset<T, CustomerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ProblemCreateManyArgs>(args?: SelectSubset<T, ProblemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Customers and returns the data saved in the database.
-     * @param {CustomerCreateManyAndReturnArgs} args - Arguments to create many Customers.
+     * Create many Problems and returns the data saved in the database.
+     * @param {ProblemCreateManyAndReturnArgs} args - Arguments to create many Problems.
      * @example
-     * // Create many Customers
-     * const customer = await prisma.customer.createManyAndReturn({
+     * // Create many Problems
+     * const problem = await prisma.problem.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Customers and only return the `id`
-     * const customerWithIdOnly = await prisma.customer.createManyAndReturn({
+     * // Create many Problems and only return the `id`
+     * const problemWithIdOnly = await prisma.problem.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2784,28 +2473,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CustomerCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ProblemCreateManyAndReturnArgs>(args?: SelectSubset<T, ProblemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Customer.
-     * @param {CustomerDeleteArgs} args - Arguments to delete one Customer.
+     * Delete a Problem.
+     * @param {ProblemDeleteArgs} args - Arguments to delete one Problem.
      * @example
-     * // Delete one Customer
-     * const Customer = await prisma.customer.delete({
+     * // Delete one Problem
+     * const Problem = await prisma.problem.delete({
      *   where: {
-     *     // ... filter to delete one Customer
+     *     // ... filter to delete one Problem
      *   }
      * })
      * 
      */
-    delete<T extends CustomerDeleteArgs>(args: SelectSubset<T, CustomerDeleteArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ProblemDeleteArgs>(args: SelectSubset<T, ProblemDeleteArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Customer.
-     * @param {CustomerUpdateArgs} args - Arguments to update one Customer.
+     * Update one Problem.
+     * @param {ProblemUpdateArgs} args - Arguments to update one Problem.
      * @example
-     * // Update one Customer
-     * const customer = await prisma.customer.update({
+     * // Update one Problem
+     * const problem = await prisma.problem.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2815,30 +2504,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CustomerUpdateArgs>(args: SelectSubset<T, CustomerUpdateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ProblemUpdateArgs>(args: SelectSubset<T, ProblemUpdateArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Customers.
-     * @param {CustomerDeleteManyArgs} args - Arguments to filter Customers to delete.
+     * Delete zero or more Problems.
+     * @param {ProblemDeleteManyArgs} args - Arguments to filter Problems to delete.
      * @example
-     * // Delete a few Customers
-     * const { count } = await prisma.customer.deleteMany({
+     * // Delete a few Problems
+     * const { count } = await prisma.problem.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CustomerDeleteManyArgs>(args?: SelectSubset<T, CustomerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ProblemDeleteManyArgs>(args?: SelectSubset<T, ProblemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customers.
+     * Update zero or more Problems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ProblemUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Customers
-     * const customer = await prisma.customer.updateMany({
+     * // Update many Problems
+     * const problem = await prisma.problem.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2848,14 +2537,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CustomerUpdateManyArgs>(args: SelectSubset<T, CustomerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ProblemUpdateManyArgs>(args: SelectSubset<T, ProblemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customers and returns the data updated in the database.
-     * @param {CustomerUpdateManyAndReturnArgs} args - Arguments to update many Customers.
+     * Update zero or more Problems and returns the data updated in the database.
+     * @param {ProblemUpdateManyAndReturnArgs} args - Arguments to update many Problems.
      * @example
-     * // Update many Customers
-     * const customer = await prisma.customer.updateManyAndReturn({
+     * // Update many Problems
+     * const problem = await prisma.problem.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2864,8 +2553,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Customers and only return the `id`
-     * const customerWithIdOnly = await prisma.customer.updateManyAndReturn({
+     * // Update zero or more Problems and only return the `id`
+     * const problemWithIdOnly = await prisma.problem.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2878,56 +2567,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CustomerUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ProblemUpdateManyAndReturnArgs>(args: SelectSubset<T, ProblemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Customer.
-     * @param {CustomerUpsertArgs} args - Arguments to update or create a Customer.
+     * Create or update one Problem.
+     * @param {ProblemUpsertArgs} args - Arguments to update or create a Problem.
      * @example
-     * // Update or create a Customer
-     * const customer = await prisma.customer.upsert({
+     * // Update or create a Problem
+     * const problem = await prisma.problem.upsert({
      *   create: {
-     *     // ... data to create a Customer
+     *     // ... data to create a Problem
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Customer we want to update
+     *     // ... the filter for the Problem we want to update
      *   }
      * })
      */
-    upsert<T extends CustomerUpsertArgs>(args: SelectSubset<T, CustomerUpsertArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ProblemUpsertArgs>(args: SelectSubset<T, ProblemUpsertArgs<ExtArgs>>): Prisma__ProblemClient<$Result.GetResult<Prisma.$ProblemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Customers.
+     * Count the number of Problems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerCountArgs} args - Arguments to filter Customers to count.
+     * @param {ProblemCountArgs} args - Arguments to filter Problems to count.
      * @example
-     * // Count the number of Customers
-     * const count = await prisma.customer.count({
+     * // Count the number of Problems
+     * const count = await prisma.problem.count({
      *   where: {
-     *     // ... the filter for the Customers we want to count
+     *     // ... the filter for the Problems we want to count
      *   }
      * })
     **/
-    count<T extends CustomerCountArgs>(
-      args?: Subset<T, CustomerCountArgs>,
+    count<T extends ProblemCountArgs>(
+      args?: Subset<T, ProblemCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CustomerCountAggregateOutputType>
+          : GetScalarType<T['select'], ProblemCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Customer.
+     * Allows you to perform aggregations operations on a Problem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ProblemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2947,13 +2636,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CustomerAggregateArgs>(args: Subset<T, CustomerAggregateArgs>): Prisma.PrismaPromise<GetCustomerAggregateType<T>>
+    aggregate<T extends ProblemAggregateArgs>(args: Subset<T, ProblemAggregateArgs>): Prisma.PrismaPromise<GetProblemAggregateType<T>>
 
     /**
-     * Group by Customer.
+     * Group by Problem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CustomerGroupByArgs} args - Group by arguments.
+     * @param {ProblemGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2968,14 +2657,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CustomerGroupByArgs,
+      T extends ProblemGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CustomerGroupByArgs['orderBy'] }
-        : { orderBy?: CustomerGroupByArgs['orderBy'] },
+        ? { orderBy: ProblemGroupByArgs['orderBy'] }
+        : { orderBy?: ProblemGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3024,24 +2713,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CustomerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ProblemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProblemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Customer model
+   * Fields of the Problem model
    */
-  readonly fields: CustomerFieldRefs;
+  readonly fields: ProblemFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Customer.
+   * The delegate class that acts as a "Promise-like" for Problem.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ProblemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    assignedTo<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    notes<T extends Customer$notesArgs<ExtArgs> = {}>(args?: Subset<T, Customer$notesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tags<T extends Customer$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3068,2594 +2755,427 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Customer model
+   * Fields of the Problem model
    */
-  interface CustomerFieldRefs {
-    readonly id: FieldRef<"Customer", 'String'>
-    readonly name: FieldRef<"Customer", 'String'>
-    readonly email: FieldRef<"Customer", 'String'>
-    readonly phone: FieldRef<"Customer", 'String'>
-    readonly company: FieldRef<"Customer", 'String'>
-    readonly status: FieldRef<"Customer", 'String'>
-    readonly userId: FieldRef<"Customer", 'String'>
-    readonly createdAt: FieldRef<"Customer", 'DateTime'>
-    readonly updatedAt: FieldRef<"Customer", 'DateTime'>
+  interface ProblemFieldRefs {
+    readonly id: FieldRef<"Problem", 'String'>
+    readonly title: FieldRef<"Problem", 'String'>
+    readonly description: FieldRef<"Problem", 'String'>
+    readonly category: FieldRef<"Problem", 'String'>
+    readonly status: FieldRef<"Problem", 'String'>
+    readonly dateSolved: FieldRef<"Problem", 'DateTime'>
+    readonly userId: FieldRef<"Problem", 'String'>
+    readonly createdAt: FieldRef<"Problem", 'DateTime'>
+    readonly updatedAt: FieldRef<"Problem", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Customer findUnique
+   * Problem findUnique
    */
-  export type CustomerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Problem to fetch.
      */
-    where: CustomerWhereUniqueInput
+    where: ProblemWhereUniqueInput
   }
 
   /**
-   * Customer findUniqueOrThrow
+   * Problem findUniqueOrThrow
    */
-  export type CustomerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Problem to fetch.
      */
-    where: CustomerWhereUniqueInput
+    where: ProblemWhereUniqueInput
   }
 
   /**
-   * Customer findFirst
+   * Problem findFirst
    */
-  export type CustomerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Problem to fetch.
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Problems to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: ProblemOrderByWithRelationInput | ProblemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Customers.
+     * Sets the position for searching for Problems.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: ProblemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Problems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Problems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Customers.
+     * Filter by unique combinations of Problems.
      */
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: ProblemScalarFieldEnum | ProblemScalarFieldEnum[]
   }
 
   /**
-   * Customer findFirstOrThrow
+   * Problem findFirstOrThrow
    */
-  export type CustomerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter, which Customer to fetch.
+     * Filter, which Problem to fetch.
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Problems to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: ProblemOrderByWithRelationInput | ProblemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Customers.
+     * Sets the position for searching for Problems.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: ProblemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Problems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Problems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Customers.
+     * Filter by unique combinations of Problems.
      */
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: ProblemScalarFieldEnum | ProblemScalarFieldEnum[]
   }
 
   /**
-   * Customer findMany
+   * Problem findMany
    */
-  export type CustomerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter, which Customers to fetch.
+     * Filter, which Problems to fetch.
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Customers to fetch.
+     * Determine the order of Problems to fetch.
      */
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    orderBy?: ProblemOrderByWithRelationInput | ProblemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Customers.
+     * Sets the position for listing Problems.
      */
-    cursor?: CustomerWhereUniqueInput
+    cursor?: ProblemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Customers from the position of the cursor.
+     * Take `±n` Problems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Customers.
+     * Skip the first `n` Problems.
      */
     skip?: number
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+    distinct?: ProblemScalarFieldEnum | ProblemScalarFieldEnum[]
   }
 
   /**
-   * Customer create
+   * Problem create
    */
-  export type CustomerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * The data needed to create a Customer.
+     * The data needed to create a Problem.
      */
-    data: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    data: XOR<ProblemCreateInput, ProblemUncheckedCreateInput>
   }
 
   /**
-   * Customer createMany
+   * Problem createMany
    */
-  export type CustomerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Customers.
+     * The data used to create many Problems.
      */
-    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    data: ProblemCreateManyInput | ProblemCreateManyInput[]
   }
 
   /**
-   * Customer createManyAndReturn
+   * Problem createManyAndReturn
    */
-  export type CustomerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ProblemSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
-     * The data used to create many Customers.
+     * The data used to create many Problems.
      */
-    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    data: ProblemCreateManyInput | ProblemCreateManyInput[]
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: ProblemIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Customer update
+   * Problem update
    */
-  export type CustomerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * The data needed to update a Customer.
+     * The data needed to update a Problem.
      */
-    data: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+    data: XOR<ProblemUpdateInput, ProblemUncheckedUpdateInput>
     /**
-     * Choose, which Customer to update.
+     * Choose, which Problem to update.
      */
-    where: CustomerWhereUniqueInput
+    where: ProblemWhereUniqueInput
   }
 
   /**
-   * Customer updateMany
+   * Problem updateMany
    */
-  export type CustomerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Customers.
+     * The data used to update Problems.
      */
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
+    data: XOR<ProblemUpdateManyMutationInput, ProblemUncheckedUpdateManyInput>
     /**
-     * Filter which Customers to update
+     * Filter which Problems to update
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
-     * Limit how many Customers to update.
+     * Limit how many Problems to update.
      */
     limit?: number
   }
 
   /**
-   * Customer updateManyAndReturn
+   * Problem updateManyAndReturn
    */
-  export type CustomerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ProblemSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
-     * The data used to update Customers.
+     * The data used to update Problems.
      */
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
+    data: XOR<ProblemUpdateManyMutationInput, ProblemUncheckedUpdateManyInput>
     /**
-     * Filter which Customers to update
+     * Filter which Problems to update
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
-     * Limit how many Customers to update.
+     * Limit how many Problems to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: ProblemIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Customer upsert
+   * Problem upsert
    */
-  export type CustomerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * The filter to search for the Customer to update in case it exists.
+     * The filter to search for the Problem to update in case it exists.
      */
-    where: CustomerWhereUniqueInput
+    where: ProblemWhereUniqueInput
     /**
-     * In case the Customer found by the `where` argument doesn't exist, create a new Customer with this data.
+     * In case the Problem found by the `where` argument doesn't exist, create a new Problem with this data.
      */
-    create: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    create: XOR<ProblemCreateInput, ProblemUncheckedCreateInput>
     /**
-     * In case the Customer was found with the provided `where` argument, update it with this data.
+     * In case the Problem was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+    update: XOR<ProblemUpdateInput, ProblemUncheckedUpdateInput>
   }
 
   /**
-   * Customer delete
+   * Problem delete
    */
-  export type CustomerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Customer
+     * Select specific fields to fetch from the Problem
      */
-    select?: CustomerSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Customer
+     * Omit specific fields from the Problem
      */
-    omit?: CustomerOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CustomerInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
     /**
-     * Filter which Customer to delete.
+     * Filter which Problem to delete.
      */
-    where: CustomerWhereUniqueInput
+    where: ProblemWhereUniqueInput
   }
 
   /**
-   * Customer deleteMany
+   * Problem deleteMany
    */
-  export type CustomerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Customers to delete
+     * Filter which Problems to delete
      */
-    where?: CustomerWhereInput
+    where?: ProblemWhereInput
     /**
-     * Limit how many Customers to delete.
+     * Limit how many Problems to delete.
      */
     limit?: number
   }
 
   /**
-   * Customer.notes
+   * Problem without action
    */
-  export type Customer$notesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProblemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Problem
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ProblemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Problem
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ProblemOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
-    where?: NoteWhereInput
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    cursor?: NoteWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
-  }
-
-  /**
-   * Customer.tags
-   */
-  export type Customer$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    where?: TagWhereInput
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    cursor?: TagWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * Customer without action
-   */
-  export type CustomerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Customer
-     */
-    select?: CustomerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Customer
-     */
-    omit?: CustomerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CustomerInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Note
-   */
-
-  export type AggregateNote = {
-    _count: NoteCountAggregateOutputType | null
-    _min: NoteMinAggregateOutputType | null
-    _max: NoteMaxAggregateOutputType | null
-  }
-
-  export type NoteMinAggregateOutputType = {
-    id: string | null
-    content: string | null
-    customerId: string | null
-    userId: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type NoteMaxAggregateOutputType = {
-    id: string | null
-    content: string | null
-    customerId: string | null
-    userId: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type NoteCountAggregateOutputType = {
-    id: number
-    content: number
-    customerId: number
-    userId: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type NoteMinAggregateInputType = {
-    id?: true
-    content?: true
-    customerId?: true
-    userId?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type NoteMaxAggregateInputType = {
-    id?: true
-    content?: true
-    customerId?: true
-    userId?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type NoteCountAggregateInputType = {
-    id?: true
-    content?: true
-    customerId?: true
-    userId?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type NoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Note to aggregate.
-     */
-    where?: NoteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Notes to fetch.
-     */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: NoteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Notes from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Notes.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Notes
-    **/
-    _count?: true | NoteCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: NoteMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: NoteMaxAggregateInputType
-  }
-
-  export type GetNoteAggregateType<T extends NoteAggregateArgs> = {
-        [P in keyof T & keyof AggregateNote]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateNote[P]>
-      : GetScalarType<T[P], AggregateNote[P]>
-  }
-
-
-
-
-  export type NoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NoteWhereInput
-    orderBy?: NoteOrderByWithAggregationInput | NoteOrderByWithAggregationInput[]
-    by: NoteScalarFieldEnum[] | NoteScalarFieldEnum
-    having?: NoteScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: NoteCountAggregateInputType | true
-    _min?: NoteMinAggregateInputType
-    _max?: NoteMaxAggregateInputType
-  }
-
-  export type NoteGroupByOutputType = {
-    id: string
-    content: string
-    customerId: string
-    userId: string
-    createdAt: Date
-    updatedAt: Date
-    _count: NoteCountAggregateOutputType | null
-    _min: NoteMinAggregateOutputType | null
-    _max: NoteMaxAggregateOutputType | null
-  }
-
-  type GetNoteGroupByPayload<T extends NoteGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<NoteGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof NoteGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], NoteGroupByOutputType[P]>
-            : GetScalarType<T[P], NoteGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type NoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    content?: boolean
-    customerId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
-
-  export type NoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    content?: boolean
-    customerId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
-
-  export type NoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    content?: boolean
-    customerId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
-
-  export type NoteSelectScalar = {
-    id?: boolean
-    content?: boolean
-    customerId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type NoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "customerId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["note"]>
-  export type NoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type NoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type NoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    createdBy?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $NotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Note"
-    objects: {
-      customer: Prisma.$CustomerPayload<ExtArgs>
-      createdBy: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      content: string
-      customerId: string
-      userId: string
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["note"]>
-    composites: {}
-  }
-
-  type NoteGetPayload<S extends boolean | null | undefined | NoteDefaultArgs> = $Result.GetResult<Prisma.$NotePayload, S>
-
-  type NoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<NoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: NoteCountAggregateInputType | true
-    }
-
-  export interface NoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Note'], meta: { name: 'Note' } }
-    /**
-     * Find zero or one Note that matches the filter.
-     * @param {NoteFindUniqueArgs} args - Arguments to find a Note
-     * @example
-     * // Get one Note
-     * const note = await prisma.note.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends NoteFindUniqueArgs>(args: SelectSubset<T, NoteFindUniqueArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Note that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {NoteFindUniqueOrThrowArgs} args - Arguments to find a Note
-     * @example
-     * // Get one Note
-     * const note = await prisma.note.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends NoteFindUniqueOrThrowArgs>(args: SelectSubset<T, NoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Note that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindFirstArgs} args - Arguments to find a Note
-     * @example
-     * // Get one Note
-     * const note = await prisma.note.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends NoteFindFirstArgs>(args?: SelectSubset<T, NoteFindFirstArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Note that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindFirstOrThrowArgs} args - Arguments to find a Note
-     * @example
-     * // Get one Note
-     * const note = await prisma.note.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends NoteFindFirstOrThrowArgs>(args?: SelectSubset<T, NoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Notes that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Notes
-     * const notes = await prisma.note.findMany()
-     * 
-     * // Get first 10 Notes
-     * const notes = await prisma.note.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const noteWithIdOnly = await prisma.note.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends NoteFindManyArgs>(args?: SelectSubset<T, NoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Note.
-     * @param {NoteCreateArgs} args - Arguments to create a Note.
-     * @example
-     * // Create one Note
-     * const Note = await prisma.note.create({
-     *   data: {
-     *     // ... data to create a Note
-     *   }
-     * })
-     * 
-     */
-    create<T extends NoteCreateArgs>(args: SelectSubset<T, NoteCreateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Notes.
-     * @param {NoteCreateManyArgs} args - Arguments to create many Notes.
-     * @example
-     * // Create many Notes
-     * const note = await prisma.note.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends NoteCreateManyArgs>(args?: SelectSubset<T, NoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Notes and returns the data saved in the database.
-     * @param {NoteCreateManyAndReturnArgs} args - Arguments to create many Notes.
-     * @example
-     * // Create many Notes
-     * const note = await prisma.note.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Notes and only return the `id`
-     * const noteWithIdOnly = await prisma.note.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends NoteCreateManyAndReturnArgs>(args?: SelectSubset<T, NoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Note.
-     * @param {NoteDeleteArgs} args - Arguments to delete one Note.
-     * @example
-     * // Delete one Note
-     * const Note = await prisma.note.delete({
-     *   where: {
-     *     // ... filter to delete one Note
-     *   }
-     * })
-     * 
-     */
-    delete<T extends NoteDeleteArgs>(args: SelectSubset<T, NoteDeleteArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Note.
-     * @param {NoteUpdateArgs} args - Arguments to update one Note.
-     * @example
-     * // Update one Note
-     * const note = await prisma.note.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends NoteUpdateArgs>(args: SelectSubset<T, NoteUpdateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Notes.
-     * @param {NoteDeleteManyArgs} args - Arguments to filter Notes to delete.
-     * @example
-     * // Delete a few Notes
-     * const { count } = await prisma.note.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends NoteDeleteManyArgs>(args?: SelectSubset<T, NoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Notes.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Notes
-     * const note = await prisma.note.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends NoteUpdateManyArgs>(args: SelectSubset<T, NoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Notes and returns the data updated in the database.
-     * @param {NoteUpdateManyAndReturnArgs} args - Arguments to update many Notes.
-     * @example
-     * // Update many Notes
-     * const note = await prisma.note.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Notes and only return the `id`
-     * const noteWithIdOnly = await prisma.note.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends NoteUpdateManyAndReturnArgs>(args: SelectSubset<T, NoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Note.
-     * @param {NoteUpsertArgs} args - Arguments to update or create a Note.
-     * @example
-     * // Update or create a Note
-     * const note = await prisma.note.upsert({
-     *   create: {
-     *     // ... data to create a Note
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Note we want to update
-     *   }
-     * })
-     */
-    upsert<T extends NoteUpsertArgs>(args: SelectSubset<T, NoteUpsertArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Notes.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteCountArgs} args - Arguments to filter Notes to count.
-     * @example
-     * // Count the number of Notes
-     * const count = await prisma.note.count({
-     *   where: {
-     *     // ... the filter for the Notes we want to count
-     *   }
-     * })
-    **/
-    count<T extends NoteCountArgs>(
-      args?: Subset<T, NoteCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], NoteCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Note.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends NoteAggregateArgs>(args: Subset<T, NoteAggregateArgs>): Prisma.PrismaPromise<GetNoteAggregateType<T>>
-
-    /**
-     * Group by Note.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends NoteGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: NoteGroupByArgs['orderBy'] }
-        : { orderBy?: NoteGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, NoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Note model
-   */
-  readonly fields: NoteFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Note.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__NoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    createdBy<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Note model
-   */
-  interface NoteFieldRefs {
-    readonly id: FieldRef<"Note", 'String'>
-    readonly content: FieldRef<"Note", 'String'>
-    readonly customerId: FieldRef<"Note", 'String'>
-    readonly userId: FieldRef<"Note", 'String'>
-    readonly createdAt: FieldRef<"Note", 'DateTime'>
-    readonly updatedAt: FieldRef<"Note", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Note findUnique
-   */
-  export type NoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter, which Note to fetch.
-     */
-    where: NoteWhereUniqueInput
-  }
-
-  /**
-   * Note findUniqueOrThrow
-   */
-  export type NoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter, which Note to fetch.
-     */
-    where: NoteWhereUniqueInput
-  }
-
-  /**
-   * Note findFirst
-   */
-  export type NoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter, which Note to fetch.
-     */
-    where?: NoteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Notes to fetch.
-     */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Notes.
-     */
-    cursor?: NoteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Notes from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Notes.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Notes.
-     */
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
-  }
-
-  /**
-   * Note findFirstOrThrow
-   */
-  export type NoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter, which Note to fetch.
-     */
-    where?: NoteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Notes to fetch.
-     */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Notes.
-     */
-    cursor?: NoteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Notes from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Notes.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Notes.
-     */
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
-  }
-
-  /**
-   * Note findMany
-   */
-  export type NoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter, which Notes to fetch.
-     */
-    where?: NoteWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Notes to fetch.
-     */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Notes.
-     */
-    cursor?: NoteWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Notes from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Notes.
-     */
-    skip?: number
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
-  }
-
-  /**
-   * Note create
-   */
-  export type NoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Note.
-     */
-    data: XOR<NoteCreateInput, NoteUncheckedCreateInput>
-  }
-
-  /**
-   * Note createMany
-   */
-  export type NoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Notes.
-     */
-    data: NoteCreateManyInput | NoteCreateManyInput[]
-  }
-
-  /**
-   * Note createManyAndReturn
-   */
-  export type NoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * The data used to create many Notes.
-     */
-    data: NoteCreateManyInput | NoteCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Note update
-   */
-  export type NoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Note.
-     */
-    data: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
-    /**
-     * Choose, which Note to update.
-     */
-    where: NoteWhereUniqueInput
-  }
-
-  /**
-   * Note updateMany
-   */
-  export type NoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Notes.
-     */
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
-    /**
-     * Filter which Notes to update
-     */
-    where?: NoteWhereInput
-    /**
-     * Limit how many Notes to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Note updateManyAndReturn
-   */
-  export type NoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * The data used to update Notes.
-     */
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
-    /**
-     * Filter which Notes to update
-     */
-    where?: NoteWhereInput
-    /**
-     * Limit how many Notes to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Note upsert
-   */
-  export type NoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Note to update in case it exists.
-     */
-    where: NoteWhereUniqueInput
-    /**
-     * In case the Note found by the `where` argument doesn't exist, create a new Note with this data.
-     */
-    create: XOR<NoteCreateInput, NoteUncheckedCreateInput>
-    /**
-     * In case the Note was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
-  }
-
-  /**
-   * Note delete
-   */
-  export type NoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-    /**
-     * Filter which Note to delete.
-     */
-    where: NoteWhereUniqueInput
-  }
-
-  /**
-   * Note deleteMany
-   */
-  export type NoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Notes to delete
-     */
-    where?: NoteWhereInput
-    /**
-     * Limit how many Notes to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Note without action
-   */
-  export type NoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Note
-     */
-    select?: NoteSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Note
-     */
-    omit?: NoteOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NoteInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Tag
-   */
-
-  export type AggregateTag = {
-    _count: TagCountAggregateOutputType | null
-    _min: TagMinAggregateOutputType | null
-    _max: TagMaxAggregateOutputType | null
-  }
-
-  export type TagMinAggregateOutputType = {
-    id: string | null
-    name: string | null
-    createdAt: Date | null
-  }
-
-  export type TagMaxAggregateOutputType = {
-    id: string | null
-    name: string | null
-    createdAt: Date | null
-  }
-
-  export type TagCountAggregateOutputType = {
-    id: number
-    name: number
-    createdAt: number
-    _all: number
-  }
-
-
-  export type TagMinAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-  }
-
-  export type TagMaxAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-  }
-
-  export type TagCountAggregateInputType = {
-    id?: true
-    name?: true
-    createdAt?: true
-    _all?: true
-  }
-
-  export type TagAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Tag to aggregate.
-     */
-    where?: TagWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Tags to fetch.
-     */
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: TagWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Tags
-    **/
-    _count?: true | TagCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: TagMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: TagMaxAggregateInputType
-  }
-
-  export type GetTagAggregateType<T extends TagAggregateArgs> = {
-        [P in keyof T & keyof AggregateTag]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTag[P]>
-      : GetScalarType<T[P], AggregateTag[P]>
-  }
-
-
-
-
-  export type TagGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TagWhereInput
-    orderBy?: TagOrderByWithAggregationInput | TagOrderByWithAggregationInput[]
-    by: TagScalarFieldEnum[] | TagScalarFieldEnum
-    having?: TagScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: TagCountAggregateInputType | true
-    _min?: TagMinAggregateInputType
-    _max?: TagMaxAggregateInputType
-  }
-
-  export type TagGroupByOutputType = {
-    id: string
-    name: string
-    createdAt: Date
-    _count: TagCountAggregateOutputType | null
-    _min: TagMinAggregateOutputType | null
-    _max: TagMaxAggregateOutputType | null
-  }
-
-  type GetTagGroupByPayload<T extends TagGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<TagGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof TagGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], TagGroupByOutputType[P]>
-            : GetScalarType<T[P], TagGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type TagSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-    customers?: boolean | Tag$customersArgs<ExtArgs>
-    _count?: boolean | TagCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["tag"]>
-
-  export type TagSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["tag"]>
-
-  export type TagSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["tag"]>
-
-  export type TagSelectScalar = {
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-  }
-
-  export type TagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt", ExtArgs["result"]["tag"]>
-  export type TagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customers?: boolean | Tag$customersArgs<ExtArgs>
-    _count?: boolean | TagCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type TagIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type TagIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-
-  export type $TagPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Tag"
-    objects: {
-      customers: Prisma.$CustomerPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      name: string
-      createdAt: Date
-    }, ExtArgs["result"]["tag"]>
-    composites: {}
-  }
-
-  type TagGetPayload<S extends boolean | null | undefined | TagDefaultArgs> = $Result.GetResult<Prisma.$TagPayload, S>
-
-  type TagCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<TagFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: TagCountAggregateInputType | true
-    }
-
-  export interface TagDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Tag'], meta: { name: 'Tag' } }
-    /**
-     * Find zero or one Tag that matches the filter.
-     * @param {TagFindUniqueArgs} args - Arguments to find a Tag
-     * @example
-     * // Get one Tag
-     * const tag = await prisma.tag.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends TagFindUniqueArgs>(args: SelectSubset<T, TagFindUniqueArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Tag that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {TagFindUniqueOrThrowArgs} args - Arguments to find a Tag
-     * @example
-     * // Get one Tag
-     * const tag = await prisma.tag.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends TagFindUniqueOrThrowArgs>(args: SelectSubset<T, TagFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Tag that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagFindFirstArgs} args - Arguments to find a Tag
-     * @example
-     * // Get one Tag
-     * const tag = await prisma.tag.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends TagFindFirstArgs>(args?: SelectSubset<T, TagFindFirstArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Tag that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagFindFirstOrThrowArgs} args - Arguments to find a Tag
-     * @example
-     * // Get one Tag
-     * const tag = await prisma.tag.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends TagFindFirstOrThrowArgs>(args?: SelectSubset<T, TagFindFirstOrThrowArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Tags that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Tags
-     * const tags = await prisma.tag.findMany()
-     * 
-     * // Get first 10 Tags
-     * const tags = await prisma.tag.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const tagWithIdOnly = await prisma.tag.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends TagFindManyArgs>(args?: SelectSubset<T, TagFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Tag.
-     * @param {TagCreateArgs} args - Arguments to create a Tag.
-     * @example
-     * // Create one Tag
-     * const Tag = await prisma.tag.create({
-     *   data: {
-     *     // ... data to create a Tag
-     *   }
-     * })
-     * 
-     */
-    create<T extends TagCreateArgs>(args: SelectSubset<T, TagCreateArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Tags.
-     * @param {TagCreateManyArgs} args - Arguments to create many Tags.
-     * @example
-     * // Create many Tags
-     * const tag = await prisma.tag.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends TagCreateManyArgs>(args?: SelectSubset<T, TagCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Tags and returns the data saved in the database.
-     * @param {TagCreateManyAndReturnArgs} args - Arguments to create many Tags.
-     * @example
-     * // Create many Tags
-     * const tag = await prisma.tag.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Tags and only return the `id`
-     * const tagWithIdOnly = await prisma.tag.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends TagCreateManyAndReturnArgs>(args?: SelectSubset<T, TagCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Tag.
-     * @param {TagDeleteArgs} args - Arguments to delete one Tag.
-     * @example
-     * // Delete one Tag
-     * const Tag = await prisma.tag.delete({
-     *   where: {
-     *     // ... filter to delete one Tag
-     *   }
-     * })
-     * 
-     */
-    delete<T extends TagDeleteArgs>(args: SelectSubset<T, TagDeleteArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Tag.
-     * @param {TagUpdateArgs} args - Arguments to update one Tag.
-     * @example
-     * // Update one Tag
-     * const tag = await prisma.tag.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends TagUpdateArgs>(args: SelectSubset<T, TagUpdateArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Tags.
-     * @param {TagDeleteManyArgs} args - Arguments to filter Tags to delete.
-     * @example
-     * // Delete a few Tags
-     * const { count } = await prisma.tag.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends TagDeleteManyArgs>(args?: SelectSubset<T, TagDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Tags
-     * const tag = await prisma.tag.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends TagUpdateManyArgs>(args: SelectSubset<T, TagUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Tags and returns the data updated in the database.
-     * @param {TagUpdateManyAndReturnArgs} args - Arguments to update many Tags.
-     * @example
-     * // Update many Tags
-     * const tag = await prisma.tag.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Tags and only return the `id`
-     * const tagWithIdOnly = await prisma.tag.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends TagUpdateManyAndReturnArgs>(args: SelectSubset<T, TagUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Tag.
-     * @param {TagUpsertArgs} args - Arguments to update or create a Tag.
-     * @example
-     * // Update or create a Tag
-     * const tag = await prisma.tag.upsert({
-     *   create: {
-     *     // ... data to create a Tag
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Tag we want to update
-     *   }
-     * })
-     */
-    upsert<T extends TagUpsertArgs>(args: SelectSubset<T, TagUpsertArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagCountArgs} args - Arguments to filter Tags to count.
-     * @example
-     * // Count the number of Tags
-     * const count = await prisma.tag.count({
-     *   where: {
-     *     // ... the filter for the Tags we want to count
-     *   }
-     * })
-    **/
-    count<T extends TagCountArgs>(
-      args?: Subset<T, TagCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TagCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Tag.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TagAggregateArgs>(args: Subset<T, TagAggregateArgs>): Prisma.PrismaPromise<GetTagAggregateType<T>>
-
-    /**
-     * Group by Tag.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TagGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends TagGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TagGroupByArgs['orderBy'] }
-        : { orderBy?: TagGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, TagGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTagGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Tag model
-   */
-  readonly fields: TagFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Tag.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__TagClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    customers<T extends Tag$customersArgs<ExtArgs> = {}>(args?: Subset<T, Tag$customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Tag model
-   */
-  interface TagFieldRefs {
-    readonly id: FieldRef<"Tag", 'String'>
-    readonly name: FieldRef<"Tag", 'String'>
-    readonly createdAt: FieldRef<"Tag", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Tag findUnique
-   */
-  export type TagFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter, which Tag to fetch.
-     */
-    where: TagWhereUniqueInput
-  }
-
-  /**
-   * Tag findUniqueOrThrow
-   */
-  export type TagFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter, which Tag to fetch.
-     */
-    where: TagWhereUniqueInput
-  }
-
-  /**
-   * Tag findFirst
-   */
-  export type TagFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter, which Tag to fetch.
-     */
-    where?: TagWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Tags to fetch.
-     */
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Tags.
-     */
-    cursor?: TagWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Tags.
-     */
-    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * Tag findFirstOrThrow
-   */
-  export type TagFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter, which Tag to fetch.
-     */
-    where?: TagWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Tags to fetch.
-     */
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Tags.
-     */
-    cursor?: TagWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Tags.
-     */
-    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * Tag findMany
-   */
-  export type TagFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter, which Tags to fetch.
-     */
-    where?: TagWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Tags to fetch.
-     */
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Tags.
-     */
-    cursor?: TagWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Tags.
-     */
-    skip?: number
-    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * Tag create
-   */
-  export type TagCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Tag.
-     */
-    data: XOR<TagCreateInput, TagUncheckedCreateInput>
-  }
-
-  /**
-   * Tag createMany
-   */
-  export type TagCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Tags.
-     */
-    data: TagCreateManyInput | TagCreateManyInput[]
-  }
-
-  /**
-   * Tag createManyAndReturn
-   */
-  export type TagCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * The data used to create many Tags.
-     */
-    data: TagCreateManyInput | TagCreateManyInput[]
-  }
-
-  /**
-   * Tag update
-   */
-  export type TagUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Tag.
-     */
-    data: XOR<TagUpdateInput, TagUncheckedUpdateInput>
-    /**
-     * Choose, which Tag to update.
-     */
-    where: TagWhereUniqueInput
-  }
-
-  /**
-   * Tag updateMany
-   */
-  export type TagUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Tags.
-     */
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyInput>
-    /**
-     * Filter which Tags to update
-     */
-    where?: TagWhereInput
-    /**
-     * Limit how many Tags to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Tag updateManyAndReturn
-   */
-  export type TagUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * The data used to update Tags.
-     */
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyInput>
-    /**
-     * Filter which Tags to update
-     */
-    where?: TagWhereInput
-    /**
-     * Limit how many Tags to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Tag upsert
-   */
-  export type TagUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Tag to update in case it exists.
-     */
-    where: TagWhereUniqueInput
-    /**
-     * In case the Tag found by the `where` argument doesn't exist, create a new Tag with this data.
-     */
-    create: XOR<TagCreateInput, TagUncheckedCreateInput>
-    /**
-     * In case the Tag was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<TagUpdateInput, TagUncheckedUpdateInput>
-  }
-
-  /**
-   * Tag delete
-   */
-  export type TagDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    /**
-     * Filter which Tag to delete.
-     */
-    where: TagWhereUniqueInput
-  }
-
-  /**
-   * Tag deleteMany
-   */
-  export type TagDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Tags to delete
-     */
-    where?: TagWhereInput
-    /**
-     * Limit how many Tags to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Tag.customers
-   */
-  export type Tag$customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Customer
-     */
-    select?: CustomerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Customer
-     */
-    omit?: CustomerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CustomerInclude<ExtArgs> | null
-    where?: CustomerWhereInput
-    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
-    cursor?: CustomerWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
-  }
-
-  /**
-   * Tag without action
-   */
-  export type TagDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
+    include?: ProblemInclude<ExtArgs> | null
   }
 
 
@@ -5675,7 +3195,6 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     password: 'password',
-    role: 'role',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -5683,40 +3202,19 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const CustomerScalarFieldEnum: {
+  export const ProblemScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    email: 'email',
-    phone: 'phone',
-    company: 'company',
+    title: 'title',
+    description: 'description',
+    category: 'category',
     status: 'status',
+    dateSolved: 'dateSolved',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
-
-
-  export const NoteScalarFieldEnum: {
-    id: 'id',
-    content: 'content',
-    customerId: 'customerId',
-    userId: 'userId',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
-
-
-  export const TagScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    createdAt: 'createdAt'
-  };
-
-  export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+  export type ProblemScalarFieldEnum = (typeof ProblemScalarFieldEnum)[keyof typeof ProblemScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5772,11 +3270,9 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    customers?: CustomerListRelationFilter
-    notes?: NoteListRelationFilter
+    problems?: ProblemListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5784,11 +3280,9 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    customers?: CustomerOrderByRelationAggregateInput
-    notes?: NoteOrderByRelationAggregateInput
+    problems?: ProblemOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5799,11 +3293,9 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    customers?: CustomerListRelationFilter
-    notes?: NoteListRelationFilter
+    problems?: ProblemListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -5811,7 +3303,6 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -5827,198 +3318,83 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
-    role?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type CustomerWhereInput = {
-    AND?: CustomerWhereInput | CustomerWhereInput[]
-    OR?: CustomerWhereInput[]
-    NOT?: CustomerWhereInput | CustomerWhereInput[]
-    id?: StringFilter<"Customer"> | string
-    name?: StringFilter<"Customer"> | string
-    email?: StringFilter<"Customer"> | string
-    phone?: StringNullableFilter<"Customer"> | string | null
-    company?: StringNullableFilter<"Customer"> | string | null
-    status?: StringFilter<"Customer"> | string
-    userId?: StringFilter<"Customer"> | string
-    createdAt?: DateTimeFilter<"Customer"> | Date | string
-    updatedAt?: DateTimeFilter<"Customer"> | Date | string
-    assignedTo?: XOR<UserScalarRelationFilter, UserWhereInput>
-    notes?: NoteListRelationFilter
-    tags?: TagListRelationFilter
+  export type ProblemWhereInput = {
+    AND?: ProblemWhereInput | ProblemWhereInput[]
+    OR?: ProblemWhereInput[]
+    NOT?: ProblemWhereInput | ProblemWhereInput[]
+    id?: StringFilter<"Problem"> | string
+    title?: StringFilter<"Problem"> | string
+    description?: StringFilter<"Problem"> | string
+    category?: StringFilter<"Problem"> | string
+    status?: StringFilter<"Problem"> | string
+    dateSolved?: DateTimeNullableFilter<"Problem"> | Date | string | null
+    userId?: StringFilter<"Problem"> | string
+    createdAt?: DateTimeFilter<"Problem"> | Date | string
+    updatedAt?: DateTimeFilter<"Problem"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type CustomerOrderByWithRelationInput = {
+  export type ProblemOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrderInput | SortOrder
-    company?: SortOrderInput | SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
     status?: SortOrder
+    dateSolved?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    assignedTo?: UserOrderByWithRelationInput
-    notes?: NoteOrderByRelationAggregateInput
-    tags?: TagOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
   }
 
-  export type CustomerWhereUniqueInput = Prisma.AtLeast<{
+  export type ProblemWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: CustomerWhereInput | CustomerWhereInput[]
-    OR?: CustomerWhereInput[]
-    NOT?: CustomerWhereInput | CustomerWhereInput[]
-    name?: StringFilter<"Customer"> | string
-    email?: StringFilter<"Customer"> | string
-    phone?: StringNullableFilter<"Customer"> | string | null
-    company?: StringNullableFilter<"Customer"> | string | null
-    status?: StringFilter<"Customer"> | string
-    userId?: StringFilter<"Customer"> | string
-    createdAt?: DateTimeFilter<"Customer"> | Date | string
-    updatedAt?: DateTimeFilter<"Customer"> | Date | string
-    assignedTo?: XOR<UserScalarRelationFilter, UserWhereInput>
-    notes?: NoteListRelationFilter
-    tags?: TagListRelationFilter
+    AND?: ProblemWhereInput | ProblemWhereInput[]
+    OR?: ProblemWhereInput[]
+    NOT?: ProblemWhereInput | ProblemWhereInput[]
+    title?: StringFilter<"Problem"> | string
+    description?: StringFilter<"Problem"> | string
+    category?: StringFilter<"Problem"> | string
+    status?: StringFilter<"Problem"> | string
+    dateSolved?: DateTimeNullableFilter<"Problem"> | Date | string | null
+    userId?: StringFilter<"Problem"> | string
+    createdAt?: DateTimeFilter<"Problem"> | Date | string
+    updatedAt?: DateTimeFilter<"Problem"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type CustomerOrderByWithAggregationInput = {
+  export type ProblemOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrderInput | SortOrder
-    company?: SortOrderInput | SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
     status?: SortOrder
+    dateSolved?: SortOrderInput | SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: CustomerCountOrderByAggregateInput
-    _max?: CustomerMaxOrderByAggregateInput
-    _min?: CustomerMinOrderByAggregateInput
+    _count?: ProblemCountOrderByAggregateInput
+    _max?: ProblemMaxOrderByAggregateInput
+    _min?: ProblemMinOrderByAggregateInput
   }
 
-  export type CustomerScalarWhereWithAggregatesInput = {
-    AND?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
-    OR?: CustomerScalarWhereWithAggregatesInput[]
-    NOT?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Customer"> | string
-    name?: StringWithAggregatesFilter<"Customer"> | string
-    email?: StringWithAggregatesFilter<"Customer"> | string
-    phone?: StringNullableWithAggregatesFilter<"Customer"> | string | null
-    company?: StringNullableWithAggregatesFilter<"Customer"> | string | null
-    status?: StringWithAggregatesFilter<"Customer"> | string
-    userId?: StringWithAggregatesFilter<"Customer"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
-  }
-
-  export type NoteWhereInput = {
-    AND?: NoteWhereInput | NoteWhereInput[]
-    OR?: NoteWhereInput[]
-    NOT?: NoteWhereInput | NoteWhereInput[]
-    id?: StringFilter<"Note"> | string
-    content?: StringFilter<"Note"> | string
-    customerId?: StringFilter<"Note"> | string
-    userId?: StringFilter<"Note"> | string
-    createdAt?: DateTimeFilter<"Note"> | Date | string
-    updatedAt?: DateTimeFilter<"Note"> | Date | string
-    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
-    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }
-
-  export type NoteOrderByWithRelationInput = {
-    id?: SortOrder
-    content?: SortOrder
-    customerId?: SortOrder
-    userId?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    customer?: CustomerOrderByWithRelationInput
-    createdBy?: UserOrderByWithRelationInput
-  }
-
-  export type NoteWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: NoteWhereInput | NoteWhereInput[]
-    OR?: NoteWhereInput[]
-    NOT?: NoteWhereInput | NoteWhereInput[]
-    content?: StringFilter<"Note"> | string
-    customerId?: StringFilter<"Note"> | string
-    userId?: StringFilter<"Note"> | string
-    createdAt?: DateTimeFilter<"Note"> | Date | string
-    updatedAt?: DateTimeFilter<"Note"> | Date | string
-    customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
-    createdBy?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
-
-  export type NoteOrderByWithAggregationInput = {
-    id?: SortOrder
-    content?: SortOrder
-    customerId?: SortOrder
-    userId?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: NoteCountOrderByAggregateInput
-    _max?: NoteMaxOrderByAggregateInput
-    _min?: NoteMinOrderByAggregateInput
-  }
-
-  export type NoteScalarWhereWithAggregatesInput = {
-    AND?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
-    OR?: NoteScalarWhereWithAggregatesInput[]
-    NOT?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Note"> | string
-    content?: StringWithAggregatesFilter<"Note"> | string
-    customerId?: StringWithAggregatesFilter<"Note"> | string
-    userId?: StringWithAggregatesFilter<"Note"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Note"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Note"> | Date | string
-  }
-
-  export type TagWhereInput = {
-    AND?: TagWhereInput | TagWhereInput[]
-    OR?: TagWhereInput[]
-    NOT?: TagWhereInput | TagWhereInput[]
-    id?: StringFilter<"Tag"> | string
-    name?: StringFilter<"Tag"> | string
-    createdAt?: DateTimeFilter<"Tag"> | Date | string
-    customers?: CustomerListRelationFilter
-  }
-
-  export type TagOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    customers?: CustomerOrderByRelationAggregateInput
-  }
-
-  export type TagWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    name?: string
-    AND?: TagWhereInput | TagWhereInput[]
-    OR?: TagWhereInput[]
-    NOT?: TagWhereInput | TagWhereInput[]
-    createdAt?: DateTimeFilter<"Tag"> | Date | string
-    customers?: CustomerListRelationFilter
-  }, "id" | "name">
-
-  export type TagOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-    _count?: TagCountOrderByAggregateInput
-    _max?: TagMaxOrderByAggregateInput
-    _min?: TagMinOrderByAggregateInput
-  }
-
-  export type TagScalarWhereWithAggregatesInput = {
-    AND?: TagScalarWhereWithAggregatesInput | TagScalarWhereWithAggregatesInput[]
-    OR?: TagScalarWhereWithAggregatesInput[]
-    NOT?: TagScalarWhereWithAggregatesInput | TagScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Tag"> | string
-    name?: StringWithAggregatesFilter<"Tag"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Tag"> | Date | string
+  export type ProblemScalarWhereWithAggregatesInput = {
+    AND?: ProblemScalarWhereWithAggregatesInput | ProblemScalarWhereWithAggregatesInput[]
+    OR?: ProblemScalarWhereWithAggregatesInput[]
+    NOT?: ProblemScalarWhereWithAggregatesInput | ProblemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Problem"> | string
+    title?: StringWithAggregatesFilter<"Problem"> | string
+    description?: StringWithAggregatesFilter<"Problem"> | string
+    category?: StringWithAggregatesFilter<"Problem"> | string
+    status?: StringWithAggregatesFilter<"Problem"> | string
+    dateSolved?: DateTimeNullableWithAggregatesFilter<"Problem"> | Date | string | null
+    userId?: StringWithAggregatesFilter<"Problem"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Problem"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Problem"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -6026,11 +3402,9 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    customers?: CustomerCreateNestedManyWithoutAssignedToInput
-    notes?: NoteCreateNestedManyWithoutCreatedByInput
+    problems?: ProblemCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6038,11 +3412,9 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    customers?: CustomerUncheckedCreateNestedManyWithoutAssignedToInput
-    notes?: NoteUncheckedCreateNestedManyWithoutCreatedByInput
+    problems?: ProblemUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6050,11 +3422,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUpdateManyWithoutAssignedToNestedInput
-    notes?: NoteUpdateManyWithoutCreatedByNestedInput
+    problems?: ProblemUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6062,11 +3432,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUncheckedUpdateManyWithoutAssignedToNestedInput
-    notes?: NoteUncheckedUpdateManyWithoutCreatedByNestedInput
+    problems?: ProblemUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6074,7 +3442,6 @@ export namespace Prisma {
     name: string
     email: string
     password: string
-    role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -6084,7 +3451,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6094,207 +3460,91 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CustomerCreateInput = {
+  export type ProblemCreateInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
+    dateSolved?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    assignedTo: UserCreateNestedOneWithoutCustomersInput
-    notes?: NoteCreateNestedManyWithoutCustomerInput
-    tags?: TagCreateNestedManyWithoutCustomersInput
+    user: UserCreateNestedOneWithoutProblemsInput
   }
 
-  export type CustomerUncheckedCreateInput = {
+  export type ProblemUncheckedCreateInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
+    dateSolved?: Date | string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutCustomerInput
-    tags?: TagUncheckedCreateNestedManyWithoutCustomersInput
   }
 
-  export type CustomerUpdateInput = {
+  export type ProblemUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignedTo?: UserUpdateOneRequiredWithoutCustomersNestedInput
-    notes?: NoteUpdateManyWithoutCustomerNestedInput
-    tags?: TagUpdateManyWithoutCustomersNestedInput
+    user?: UserUpdateOneRequiredWithoutProblemsNestedInput
   }
 
-  export type CustomerUncheckedUpdateInput = {
+  export type ProblemUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutCustomerNestedInput
-    tags?: TagUncheckedUpdateManyWithoutCustomersNestedInput
   }
 
-  export type CustomerCreateManyInput = {
+  export type ProblemCreateManyInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
+    dateSolved?: Date | string | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type CustomerUpdateManyMutationInput = {
+  export type ProblemUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CustomerUncheckedUpdateManyInput = {
+  export type ProblemUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteCreateInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    customer: CustomerCreateNestedOneWithoutNotesInput
-    createdBy: UserCreateNestedOneWithoutNotesInput
-  }
-
-  export type NoteUncheckedCreateInput = {
-    id?: string
-    content: string
-    customerId: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NoteUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customer?: CustomerUpdateOneRequiredWithoutNotesNestedInput
-    createdBy?: UserUpdateOneRequiredWithoutNotesNestedInput
-  }
-
-  export type NoteUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    customerId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteCreateManyInput = {
-    id?: string
-    content: string
-    customerId: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NoteUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    customerId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TagCreateInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-    customers?: CustomerCreateNestedManyWithoutTagsInput
-  }
-
-  export type TagUncheckedCreateInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-    customers?: CustomerUncheckedCreateNestedManyWithoutTagsInput
-  }
-
-  export type TagUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUpdateManyWithoutTagsNestedInput
-  }
-
-  export type TagUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUncheckedUpdateManyWithoutTagsNestedInput
-  }
-
-  export type TagCreateManyInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-  }
-
-  export type TagUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TagUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -6322,23 +3572,13 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type CustomerListRelationFilter = {
-    every?: CustomerWhereInput
-    some?: CustomerWhereInput
-    none?: CustomerWhereInput
+  export type ProblemListRelationFilter = {
+    every?: ProblemWhereInput
+    some?: ProblemWhereInput
+    none?: ProblemWhereInput
   }
 
-  export type NoteListRelationFilter = {
-    every?: NoteWhereInput
-    some?: NoteWhereInput
-    none?: NoteWhereInput
-  }
-
-  export type CustomerOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type NoteOrderByRelationAggregateInput = {
+  export type ProblemOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6347,7 +3587,6 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6357,7 +3596,6 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6367,7 +3605,6 @@ export namespace Prisma {
     name?: SortOrder
     email?: SortOrder
     password?: SortOrder
-    role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6403,18 +3640,15 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type UserScalarRelationFilter = {
@@ -6422,150 +3656,73 @@ export namespace Prisma {
     isNot?: UserWhereInput
   }
 
-  export type TagListRelationFilter = {
-    every?: TagWhereInput
-    some?: TagWhereInput
-    none?: TagWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-  export type TagOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type CustomerCountOrderByAggregateInput = {
+  export type ProblemCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrder
-    company?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
     status?: SortOrder
+    dateSolved?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type CustomerMaxOrderByAggregateInput = {
+  export type ProblemMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrder
-    company?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
     status?: SortOrder
+    dateSolved?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type CustomerMinOrderByAggregateInput = {
+  export type ProblemMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    phone?: SortOrder
-    company?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
     status?: SortOrder
+    dateSolved?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type CustomerScalarRelationFilter = {
-    is?: CustomerWhereInput
-    isNot?: CustomerWhereInput
+  export type ProblemCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput> | ProblemCreateWithoutUserInput[] | ProblemUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProblemCreateOrConnectWithoutUserInput | ProblemCreateOrConnectWithoutUserInput[]
+    createMany?: ProblemCreateManyUserInputEnvelope
+    connect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
   }
 
-  export type NoteCountOrderByAggregateInput = {
-    id?: SortOrder
-    content?: SortOrder
-    customerId?: SortOrder
-    userId?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type NoteMaxOrderByAggregateInput = {
-    id?: SortOrder
-    content?: SortOrder
-    customerId?: SortOrder
-    userId?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type NoteMinOrderByAggregateInput = {
-    id?: SortOrder
-    content?: SortOrder
-    customerId?: SortOrder
-    userId?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type TagCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type TagMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type TagMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    createdAt?: SortOrder
-  }
-
-  export type CustomerCreateNestedManyWithoutAssignedToInput = {
-    create?: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput> | CustomerCreateWithoutAssignedToInput[] | CustomerUncheckedCreateWithoutAssignedToInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutAssignedToInput | CustomerCreateOrConnectWithoutAssignedToInput[]
-    createMany?: CustomerCreateManyAssignedToInputEnvelope
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-  }
-
-  export type NoteCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput> | NoteCreateWithoutCreatedByInput[] | NoteUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCreatedByInput | NoteCreateOrConnectWithoutCreatedByInput[]
-    createMany?: NoteCreateManyCreatedByInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-  }
-
-  export type CustomerUncheckedCreateNestedManyWithoutAssignedToInput = {
-    create?: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput> | CustomerCreateWithoutAssignedToInput[] | CustomerUncheckedCreateWithoutAssignedToInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutAssignedToInput | CustomerCreateOrConnectWithoutAssignedToInput[]
-    createMany?: CustomerCreateManyAssignedToInputEnvelope
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-  }
-
-  export type NoteUncheckedCreateNestedManyWithoutCreatedByInput = {
-    create?: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput> | NoteCreateWithoutCreatedByInput[] | NoteUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCreatedByInput | NoteCreateOrConnectWithoutCreatedByInput[]
-    createMany?: NoteCreateManyCreatedByInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  export type ProblemUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput> | ProblemCreateWithoutUserInput[] | ProblemUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProblemCreateOrConnectWithoutUserInput | ProblemCreateOrConnectWithoutUserInput[]
+    createMany?: ProblemCreateManyUserInputEnvelope
+    connect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6576,224 +3733,50 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type CustomerUpdateManyWithoutAssignedToNestedInput = {
-    create?: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput> | CustomerCreateWithoutAssignedToInput[] | CustomerUncheckedCreateWithoutAssignedToInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutAssignedToInput | CustomerCreateOrConnectWithoutAssignedToInput[]
-    upsert?: CustomerUpsertWithWhereUniqueWithoutAssignedToInput | CustomerUpsertWithWhereUniqueWithoutAssignedToInput[]
-    createMany?: CustomerCreateManyAssignedToInputEnvelope
-    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    update?: CustomerUpdateWithWhereUniqueWithoutAssignedToInput | CustomerUpdateWithWhereUniqueWithoutAssignedToInput[]
-    updateMany?: CustomerUpdateManyWithWhereWithoutAssignedToInput | CustomerUpdateManyWithWhereWithoutAssignedToInput[]
-    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+  export type ProblemUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput> | ProblemCreateWithoutUserInput[] | ProblemUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProblemCreateOrConnectWithoutUserInput | ProblemCreateOrConnectWithoutUserInput[]
+    upsert?: ProblemUpsertWithWhereUniqueWithoutUserInput | ProblemUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProblemCreateManyUserInputEnvelope
+    set?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    disconnect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    delete?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    connect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    update?: ProblemUpdateWithWhereUniqueWithoutUserInput | ProblemUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProblemUpdateManyWithWhereWithoutUserInput | ProblemUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProblemScalarWhereInput | ProblemScalarWhereInput[]
   }
 
-  export type NoteUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput> | NoteCreateWithoutCreatedByInput[] | NoteUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCreatedByInput | NoteCreateOrConnectWithoutCreatedByInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutCreatedByInput | NoteUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: NoteCreateManyCreatedByInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutCreatedByInput | NoteUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutCreatedByInput | NoteUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  export type ProblemUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput> | ProblemCreateWithoutUserInput[] | ProblemUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ProblemCreateOrConnectWithoutUserInput | ProblemCreateOrConnectWithoutUserInput[]
+    upsert?: ProblemUpsertWithWhereUniqueWithoutUserInput | ProblemUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ProblemCreateManyUserInputEnvelope
+    set?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    disconnect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    delete?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    connect?: ProblemWhereUniqueInput | ProblemWhereUniqueInput[]
+    update?: ProblemUpdateWithWhereUniqueWithoutUserInput | ProblemUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ProblemUpdateManyWithWhereWithoutUserInput | ProblemUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ProblemScalarWhereInput | ProblemScalarWhereInput[]
   }
 
-  export type CustomerUncheckedUpdateManyWithoutAssignedToNestedInput = {
-    create?: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput> | CustomerCreateWithoutAssignedToInput[] | CustomerUncheckedCreateWithoutAssignedToInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutAssignedToInput | CustomerCreateOrConnectWithoutAssignedToInput[]
-    upsert?: CustomerUpsertWithWhereUniqueWithoutAssignedToInput | CustomerUpsertWithWhereUniqueWithoutAssignedToInput[]
-    createMany?: CustomerCreateManyAssignedToInputEnvelope
-    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    update?: CustomerUpdateWithWhereUniqueWithoutAssignedToInput | CustomerUpdateWithWhereUniqueWithoutAssignedToInput[]
-    updateMany?: CustomerUpdateManyWithWhereWithoutAssignedToInput | CustomerUpdateManyWithWhereWithoutAssignedToInput[]
-    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
-  }
-
-  export type NoteUncheckedUpdateManyWithoutCreatedByNestedInput = {
-    create?: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput> | NoteCreateWithoutCreatedByInput[] | NoteUncheckedCreateWithoutCreatedByInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCreatedByInput | NoteCreateOrConnectWithoutCreatedByInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutCreatedByInput | NoteUpsertWithWhereUniqueWithoutCreatedByInput[]
-    createMany?: NoteCreateManyCreatedByInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutCreatedByInput | NoteUpdateWithWhereUniqueWithoutCreatedByInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutCreatedByInput | NoteUpdateManyWithWhereWithoutCreatedByInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutCustomersInput = {
-    create?: XOR<UserCreateWithoutCustomersInput, UserUncheckedCreateWithoutCustomersInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCustomersInput
+  export type UserCreateNestedOneWithoutProblemsInput = {
+    create?: XOR<UserCreateWithoutProblemsInput, UserUncheckedCreateWithoutProblemsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProblemsInput
     connect?: UserWhereUniqueInput
   }
 
-  export type NoteCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput> | NoteCreateWithoutCustomerInput[] | NoteUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCustomerInput | NoteCreateOrConnectWithoutCustomerInput[]
-    createMany?: NoteCreateManyCustomerInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
-  export type TagCreateNestedManyWithoutCustomersInput = {
-    create?: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput> | TagCreateWithoutCustomersInput[] | TagUncheckedCreateWithoutCustomersInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutCustomersInput | TagCreateOrConnectWithoutCustomersInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type NoteUncheckedCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput> | NoteCreateWithoutCustomerInput[] | NoteUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCustomerInput | NoteCreateOrConnectWithoutCustomerInput[]
-    createMany?: NoteCreateManyCustomerInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-  }
-
-  export type TagUncheckedCreateNestedManyWithoutCustomersInput = {
-    create?: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput> | TagCreateWithoutCustomersInput[] | TagUncheckedCreateWithoutCustomersInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutCustomersInput | TagCreateOrConnectWithoutCustomersInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type UserUpdateOneRequiredWithoutCustomersNestedInput = {
-    create?: XOR<UserCreateWithoutCustomersInput, UserUncheckedCreateWithoutCustomersInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCustomersInput
-    upsert?: UserUpsertWithoutCustomersInput
+  export type UserUpdateOneRequiredWithoutProblemsNestedInput = {
+    create?: XOR<UserCreateWithoutProblemsInput, UserUncheckedCreateWithoutProblemsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProblemsInput
+    upsert?: UserUpsertWithoutProblemsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCustomersInput, UserUpdateWithoutCustomersInput>, UserUncheckedUpdateWithoutCustomersInput>
-  }
-
-  export type NoteUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput> | NoteCreateWithoutCustomerInput[] | NoteUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCustomerInput | NoteCreateOrConnectWithoutCustomerInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutCustomerInput | NoteUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: NoteCreateManyCustomerInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutCustomerInput | NoteUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutCustomerInput | NoteUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
-  }
-
-  export type TagUpdateManyWithoutCustomersNestedInput = {
-    create?: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput> | TagCreateWithoutCustomersInput[] | TagUncheckedCreateWithoutCustomersInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutCustomersInput | TagCreateOrConnectWithoutCustomersInput[]
-    upsert?: TagUpsertWithWhereUniqueWithoutCustomersInput | TagUpsertWithWhereUniqueWithoutCustomersInput[]
-    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    update?: TagUpdateWithWhereUniqueWithoutCustomersInput | TagUpdateWithWhereUniqueWithoutCustomersInput[]
-    updateMany?: TagUpdateManyWithWhereWithoutCustomersInput | TagUpdateManyWithWhereWithoutCustomersInput[]
-    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
-  }
-
-  export type NoteUncheckedUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput> | NoteCreateWithoutCustomerInput[] | NoteUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutCustomerInput | NoteCreateOrConnectWithoutCustomerInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutCustomerInput | NoteUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: NoteCreateManyCustomerInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutCustomerInput | NoteUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutCustomerInput | NoteUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
-  }
-
-  export type TagUncheckedUpdateManyWithoutCustomersNestedInput = {
-    create?: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput> | TagCreateWithoutCustomersInput[] | TagUncheckedCreateWithoutCustomersInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutCustomersInput | TagCreateOrConnectWithoutCustomersInput[]
-    upsert?: TagUpsertWithWhereUniqueWithoutCustomersInput | TagUpsertWithWhereUniqueWithoutCustomersInput[]
-    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    update?: TagUpdateWithWhereUniqueWithoutCustomersInput | TagUpdateWithWhereUniqueWithoutCustomersInput[]
-    updateMany?: TagUpdateManyWithWhereWithoutCustomersInput | TagUpdateManyWithWhereWithoutCustomersInput[]
-    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
-  }
-
-  export type CustomerCreateNestedOneWithoutNotesInput = {
-    create?: XOR<CustomerCreateWithoutNotesInput, CustomerUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: CustomerCreateOrConnectWithoutNotesInput
-    connect?: CustomerWhereUniqueInput
-  }
-
-  export type UserCreateNestedOneWithoutNotesInput = {
-    create?: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutNotesInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type CustomerUpdateOneRequiredWithoutNotesNestedInput = {
-    create?: XOR<CustomerCreateWithoutNotesInput, CustomerUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: CustomerCreateOrConnectWithoutNotesInput
-    upsert?: CustomerUpsertWithoutNotesInput
-    connect?: CustomerWhereUniqueInput
-    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutNotesInput, CustomerUpdateWithoutNotesInput>, CustomerUncheckedUpdateWithoutNotesInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutNotesNestedInput = {
-    create?: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutNotesInput
-    upsert?: UserUpsertWithoutNotesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotesInput, UserUpdateWithoutNotesInput>, UserUncheckedUpdateWithoutNotesInput>
-  }
-
-  export type CustomerCreateNestedManyWithoutTagsInput = {
-    create?: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput> | CustomerCreateWithoutTagsInput[] | CustomerUncheckedCreateWithoutTagsInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutTagsInput | CustomerCreateOrConnectWithoutTagsInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-  }
-
-  export type CustomerUncheckedCreateNestedManyWithoutTagsInput = {
-    create?: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput> | CustomerCreateWithoutTagsInput[] | CustomerUncheckedCreateWithoutTagsInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutTagsInput | CustomerCreateOrConnectWithoutTagsInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-  }
-
-  export type CustomerUpdateManyWithoutTagsNestedInput = {
-    create?: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput> | CustomerCreateWithoutTagsInput[] | CustomerUncheckedCreateWithoutTagsInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutTagsInput | CustomerCreateOrConnectWithoutTagsInput[]
-    upsert?: CustomerUpsertWithWhereUniqueWithoutTagsInput | CustomerUpsertWithWhereUniqueWithoutTagsInput[]
-    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    update?: CustomerUpdateWithWhereUniqueWithoutTagsInput | CustomerUpdateWithWhereUniqueWithoutTagsInput[]
-    updateMany?: CustomerUpdateManyWithWhereWithoutTagsInput | CustomerUpdateManyWithWhereWithoutTagsInput[]
-    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
-  }
-
-  export type CustomerUncheckedUpdateManyWithoutTagsNestedInput = {
-    create?: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput> | CustomerCreateWithoutTagsInput[] | CustomerUncheckedCreateWithoutTagsInput[]
-    connectOrCreate?: CustomerCreateOrConnectWithoutTagsInput | CustomerCreateOrConnectWithoutTagsInput[]
-    upsert?: CustomerUpsertWithWhereUniqueWithoutTagsInput | CustomerUpsertWithWhereUniqueWithoutTagsInput[]
-    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
-    update?: CustomerUpdateWithWhereUniqueWithoutTagsInput | CustomerUpdateWithWhereUniqueWithoutTagsInput[]
-    updateMany?: CustomerUpdateManyWithWhereWithoutTagsInput | CustomerUpdateManyWithWhereWithoutTagsInput[]
-    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProblemsInput, UserUpdateWithoutProblemsInput>, UserUncheckedUpdateWithoutProblemsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6863,35 +3846,29 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -6905,607 +3882,160 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type CustomerCreateWithoutAssignedToInput = {
+  export type ProblemCreateWithoutUserInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
+    dateSolved?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteCreateNestedManyWithoutCustomerInput
-    tags?: TagCreateNestedManyWithoutCustomersInput
   }
 
-  export type CustomerUncheckedCreateWithoutAssignedToInput = {
+  export type ProblemUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutCustomerInput
-    tags?: TagUncheckedCreateNestedManyWithoutCustomersInput
-  }
-
-  export type CustomerCreateOrConnectWithoutAssignedToInput = {
-    where: CustomerWhereUniqueInput
-    create: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput>
-  }
-
-  export type CustomerCreateManyAssignedToInputEnvelope = {
-    data: CustomerCreateManyAssignedToInput | CustomerCreateManyAssignedToInput[]
-  }
-
-  export type NoteCreateWithoutCreatedByInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    customer: CustomerCreateNestedOneWithoutNotesInput
-  }
-
-  export type NoteUncheckedCreateWithoutCreatedByInput = {
-    id?: string
-    content: string
-    customerId: string
+    dateSolved?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type NoteCreateOrConnectWithoutCreatedByInput = {
-    where: NoteWhereUniqueInput
-    create: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput>
+  export type ProblemCreateOrConnectWithoutUserInput = {
+    where: ProblemWhereUniqueInput
+    create: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput>
   }
 
-  export type NoteCreateManyCreatedByInputEnvelope = {
-    data: NoteCreateManyCreatedByInput | NoteCreateManyCreatedByInput[]
+  export type ProblemCreateManyUserInputEnvelope = {
+    data: ProblemCreateManyUserInput | ProblemCreateManyUserInput[]
   }
 
-  export type CustomerUpsertWithWhereUniqueWithoutAssignedToInput = {
-    where: CustomerWhereUniqueInput
-    update: XOR<CustomerUpdateWithoutAssignedToInput, CustomerUncheckedUpdateWithoutAssignedToInput>
-    create: XOR<CustomerCreateWithoutAssignedToInput, CustomerUncheckedCreateWithoutAssignedToInput>
+  export type ProblemUpsertWithWhereUniqueWithoutUserInput = {
+    where: ProblemWhereUniqueInput
+    update: XOR<ProblemUpdateWithoutUserInput, ProblemUncheckedUpdateWithoutUserInput>
+    create: XOR<ProblemCreateWithoutUserInput, ProblemUncheckedCreateWithoutUserInput>
   }
 
-  export type CustomerUpdateWithWhereUniqueWithoutAssignedToInput = {
-    where: CustomerWhereUniqueInput
-    data: XOR<CustomerUpdateWithoutAssignedToInput, CustomerUncheckedUpdateWithoutAssignedToInput>
+  export type ProblemUpdateWithWhereUniqueWithoutUserInput = {
+    where: ProblemWhereUniqueInput
+    data: XOR<ProblemUpdateWithoutUserInput, ProblemUncheckedUpdateWithoutUserInput>
   }
 
-  export type CustomerUpdateManyWithWhereWithoutAssignedToInput = {
-    where: CustomerScalarWhereInput
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyWithoutAssignedToInput>
+  export type ProblemUpdateManyWithWhereWithoutUserInput = {
+    where: ProblemScalarWhereInput
+    data: XOR<ProblemUpdateManyMutationInput, ProblemUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type CustomerScalarWhereInput = {
-    AND?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
-    OR?: CustomerScalarWhereInput[]
-    NOT?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
-    id?: StringFilter<"Customer"> | string
-    name?: StringFilter<"Customer"> | string
-    email?: StringFilter<"Customer"> | string
-    phone?: StringNullableFilter<"Customer"> | string | null
-    company?: StringNullableFilter<"Customer"> | string | null
-    status?: StringFilter<"Customer"> | string
-    userId?: StringFilter<"Customer"> | string
-    createdAt?: DateTimeFilter<"Customer"> | Date | string
-    updatedAt?: DateTimeFilter<"Customer"> | Date | string
+  export type ProblemScalarWhereInput = {
+    AND?: ProblemScalarWhereInput | ProblemScalarWhereInput[]
+    OR?: ProblemScalarWhereInput[]
+    NOT?: ProblemScalarWhereInput | ProblemScalarWhereInput[]
+    id?: StringFilter<"Problem"> | string
+    title?: StringFilter<"Problem"> | string
+    description?: StringFilter<"Problem"> | string
+    category?: StringFilter<"Problem"> | string
+    status?: StringFilter<"Problem"> | string
+    dateSolved?: DateTimeNullableFilter<"Problem"> | Date | string | null
+    userId?: StringFilter<"Problem"> | string
+    createdAt?: DateTimeFilter<"Problem"> | Date | string
+    updatedAt?: DateTimeFilter<"Problem"> | Date | string
   }
 
-  export type NoteUpsertWithWhereUniqueWithoutCreatedByInput = {
-    where: NoteWhereUniqueInput
-    update: XOR<NoteUpdateWithoutCreatedByInput, NoteUncheckedUpdateWithoutCreatedByInput>
-    create: XOR<NoteCreateWithoutCreatedByInput, NoteUncheckedCreateWithoutCreatedByInput>
-  }
-
-  export type NoteUpdateWithWhereUniqueWithoutCreatedByInput = {
-    where: NoteWhereUniqueInput
-    data: XOR<NoteUpdateWithoutCreatedByInput, NoteUncheckedUpdateWithoutCreatedByInput>
-  }
-
-  export type NoteUpdateManyWithWhereWithoutCreatedByInput = {
-    where: NoteScalarWhereInput
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyWithoutCreatedByInput>
-  }
-
-  export type NoteScalarWhereInput = {
-    AND?: NoteScalarWhereInput | NoteScalarWhereInput[]
-    OR?: NoteScalarWhereInput[]
-    NOT?: NoteScalarWhereInput | NoteScalarWhereInput[]
-    id?: StringFilter<"Note"> | string
-    content?: StringFilter<"Note"> | string
-    customerId?: StringFilter<"Note"> | string
-    userId?: StringFilter<"Note"> | string
-    createdAt?: DateTimeFilter<"Note"> | Date | string
-    updatedAt?: DateTimeFilter<"Note"> | Date | string
-  }
-
-  export type UserCreateWithoutCustomersInput = {
+  export type UserCreateWithoutProblemsInput = {
     id?: string
     name: string
     email: string
     password: string
-    role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteCreateNestedManyWithoutCreatedByInput
   }
 
-  export type UserUncheckedCreateWithoutCustomersInput = {
+  export type UserUncheckedCreateWithoutProblemsInput = {
     id?: string
     name: string
     email: string
     password: string
-    role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutCreatedByInput
   }
 
-  export type UserCreateOrConnectWithoutCustomersInput = {
+  export type UserCreateOrConnectWithoutProblemsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCustomersInput, UserUncheckedCreateWithoutCustomersInput>
+    create: XOR<UserCreateWithoutProblemsInput, UserUncheckedCreateWithoutProblemsInput>
   }
 
-  export type NoteCreateWithoutCustomerInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    createdBy: UserCreateNestedOneWithoutNotesInput
-  }
-
-  export type NoteUncheckedCreateWithoutCustomerInput = {
-    id?: string
-    content: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NoteCreateOrConnectWithoutCustomerInput = {
-    where: NoteWhereUniqueInput
-    create: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput>
-  }
-
-  export type NoteCreateManyCustomerInputEnvelope = {
-    data: NoteCreateManyCustomerInput | NoteCreateManyCustomerInput[]
-  }
-
-  export type TagCreateWithoutCustomersInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-  }
-
-  export type TagUncheckedCreateWithoutCustomersInput = {
-    id?: string
-    name: string
-    createdAt?: Date | string
-  }
-
-  export type TagCreateOrConnectWithoutCustomersInput = {
-    where: TagWhereUniqueInput
-    create: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput>
-  }
-
-  export type UserUpsertWithoutCustomersInput = {
-    update: XOR<UserUpdateWithoutCustomersInput, UserUncheckedUpdateWithoutCustomersInput>
-    create: XOR<UserCreateWithoutCustomersInput, UserUncheckedCreateWithoutCustomersInput>
+  export type UserUpsertWithoutProblemsInput = {
+    update: XOR<UserUpdateWithoutProblemsInput, UserUncheckedUpdateWithoutProblemsInput>
+    create: XOR<UserCreateWithoutProblemsInput, UserUncheckedCreateWithoutProblemsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutCustomersInput = {
+  export type UserUpdateToOneWithWhereWithoutProblemsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutCustomersInput, UserUncheckedUpdateWithoutCustomersInput>
+    data: XOR<UserUpdateWithoutProblemsInput, UserUncheckedUpdateWithoutProblemsInput>
   }
 
-  export type UserUpdateWithoutCustomersInput = {
+  export type UserUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUpdateManyWithoutCreatedByNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutCustomersInput = {
+  export type UserUncheckedUpdateWithoutProblemsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutCreatedByNestedInput
   }
 
-  export type NoteUpsertWithWhereUniqueWithoutCustomerInput = {
-    where: NoteWhereUniqueInput
-    update: XOR<NoteUpdateWithoutCustomerInput, NoteUncheckedUpdateWithoutCustomerInput>
-    create: XOR<NoteCreateWithoutCustomerInput, NoteUncheckedCreateWithoutCustomerInput>
-  }
-
-  export type NoteUpdateWithWhereUniqueWithoutCustomerInput = {
-    where: NoteWhereUniqueInput
-    data: XOR<NoteUpdateWithoutCustomerInput, NoteUncheckedUpdateWithoutCustomerInput>
-  }
-
-  export type NoteUpdateManyWithWhereWithoutCustomerInput = {
-    where: NoteScalarWhereInput
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyWithoutCustomerInput>
-  }
-
-  export type TagUpsertWithWhereUniqueWithoutCustomersInput = {
-    where: TagWhereUniqueInput
-    update: XOR<TagUpdateWithoutCustomersInput, TagUncheckedUpdateWithoutCustomersInput>
-    create: XOR<TagCreateWithoutCustomersInput, TagUncheckedCreateWithoutCustomersInput>
-  }
-
-  export type TagUpdateWithWhereUniqueWithoutCustomersInput = {
-    where: TagWhereUniqueInput
-    data: XOR<TagUpdateWithoutCustomersInput, TagUncheckedUpdateWithoutCustomersInput>
-  }
-
-  export type TagUpdateManyWithWhereWithoutCustomersInput = {
-    where: TagScalarWhereInput
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutCustomersInput>
-  }
-
-  export type TagScalarWhereInput = {
-    AND?: TagScalarWhereInput | TagScalarWhereInput[]
-    OR?: TagScalarWhereInput[]
-    NOT?: TagScalarWhereInput | TagScalarWhereInput[]
-    id?: StringFilter<"Tag"> | string
-    name?: StringFilter<"Tag"> | string
-    createdAt?: DateTimeFilter<"Tag"> | Date | string
-  }
-
-  export type CustomerCreateWithoutNotesInput = {
+  export type ProblemCreateManyUserInput = {
     id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
+    title: string
+    description: string
+    category: string
     status?: string
+    dateSolved?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    assignedTo: UserCreateNestedOneWithoutCustomersInput
-    tags?: TagCreateNestedManyWithoutCustomersInput
   }
 
-  export type CustomerUncheckedCreateWithoutNotesInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    status?: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    tags?: TagUncheckedCreateNestedManyWithoutCustomersInput
-  }
-
-  export type CustomerCreateOrConnectWithoutNotesInput = {
-    where: CustomerWhereUniqueInput
-    create: XOR<CustomerCreateWithoutNotesInput, CustomerUncheckedCreateWithoutNotesInput>
-  }
-
-  export type UserCreateWithoutNotesInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    role?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    customers?: CustomerCreateNestedManyWithoutAssignedToInput
-  }
-
-  export type UserUncheckedCreateWithoutNotesInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    role?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    customers?: CustomerUncheckedCreateNestedManyWithoutAssignedToInput
-  }
-
-  export type UserCreateOrConnectWithoutNotesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
-  }
-
-  export type CustomerUpsertWithoutNotesInput = {
-    update: XOR<CustomerUpdateWithoutNotesInput, CustomerUncheckedUpdateWithoutNotesInput>
-    create: XOR<CustomerCreateWithoutNotesInput, CustomerUncheckedCreateWithoutNotesInput>
-    where?: CustomerWhereInput
-  }
-
-  export type CustomerUpdateToOneWithWhereWithoutNotesInput = {
-    where?: CustomerWhereInput
-    data: XOR<CustomerUpdateWithoutNotesInput, CustomerUncheckedUpdateWithoutNotesInput>
-  }
-
-  export type CustomerUpdateWithoutNotesInput = {
+  export type ProblemUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignedTo?: UserUpdateOneRequiredWithoutCustomersNestedInput
-    tags?: TagUpdateManyWithoutCustomersNestedInput
   }
 
-  export type CustomerUncheckedUpdateWithoutNotesInput = {
+  export type ProblemUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    tags?: TagUncheckedUpdateManyWithoutCustomersNestedInput
   }
 
-  export type UserUpsertWithoutNotesInput = {
-    update: XOR<UserUpdateWithoutNotesInput, UserUncheckedUpdateWithoutNotesInput>
-    create: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutNotesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutNotesInput, UserUncheckedUpdateWithoutNotesInput>
-  }
-
-  export type UserUpdateWithoutNotesInput = {
+  export type ProblemUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUpdateManyWithoutAssignedToNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutNotesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customers?: CustomerUncheckedUpdateManyWithoutAssignedToNestedInput
-  }
-
-  export type CustomerCreateWithoutTagsInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    assignedTo: UserCreateNestedOneWithoutCustomersInput
-    notes?: NoteCreateNestedManyWithoutCustomerInput
-  }
-
-  export type CustomerUncheckedCreateWithoutTagsInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    status?: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutCustomerInput
-  }
-
-  export type CustomerCreateOrConnectWithoutTagsInput = {
-    where: CustomerWhereUniqueInput
-    create: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput>
-  }
-
-  export type CustomerUpsertWithWhereUniqueWithoutTagsInput = {
-    where: CustomerWhereUniqueInput
-    update: XOR<CustomerUpdateWithoutTagsInput, CustomerUncheckedUpdateWithoutTagsInput>
-    create: XOR<CustomerCreateWithoutTagsInput, CustomerUncheckedCreateWithoutTagsInput>
-  }
-
-  export type CustomerUpdateWithWhereUniqueWithoutTagsInput = {
-    where: CustomerWhereUniqueInput
-    data: XOR<CustomerUpdateWithoutTagsInput, CustomerUncheckedUpdateWithoutTagsInput>
-  }
-
-  export type CustomerUpdateManyWithWhereWithoutTagsInput = {
-    where: CustomerScalarWhereInput
-    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyWithoutTagsInput>
-  }
-
-  export type CustomerCreateManyAssignedToInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    status?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NoteCreateManyCreatedByInput = {
-    id?: string
-    content: string
-    customerId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CustomerUpdateWithoutAssignedToInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUpdateManyWithoutCustomerNestedInput
-    tags?: TagUpdateManyWithoutCustomersNestedInput
-  }
-
-  export type CustomerUncheckedUpdateWithoutAssignedToInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutCustomerNestedInput
-    tags?: TagUncheckedUpdateManyWithoutCustomersNestedInput
-  }
-
-  export type CustomerUncheckedUpdateManyWithoutAssignedToInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteUpdateWithoutCreatedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    customer?: CustomerUpdateOneRequiredWithoutNotesNestedInput
-  }
-
-  export type NoteUncheckedUpdateWithoutCreatedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    customerId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteUncheckedUpdateManyWithoutCreatedByInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    customerId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteCreateManyCustomerInput = {
-    id?: string
-    content: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NoteUpdateWithoutCustomerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdBy?: UserUpdateOneRequiredWithoutNotesNestedInput
-  }
-
-  export type NoteUncheckedUpdateWithoutCustomerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NoteUncheckedUpdateManyWithoutCustomerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TagUpdateWithoutCustomersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TagUncheckedUpdateWithoutCustomersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type TagUncheckedUpdateManyWithoutCustomersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CustomerUpdateWithoutTagsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignedTo?: UserUpdateOneRequiredWithoutCustomersNestedInput
-    notes?: NoteUpdateManyWithoutCustomerNestedInput
-  }
-
-  export type CustomerUncheckedUpdateWithoutTagsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutCustomerNestedInput
-  }
-
-  export type CustomerUncheckedUpdateManyWithoutTagsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    dateSolved?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

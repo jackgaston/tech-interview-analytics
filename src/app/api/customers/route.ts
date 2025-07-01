@@ -18,10 +18,77 @@
  */
 
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { PrismaClient } from '@prisma/client';
+import { Customer } from '@/types';
 
-const prisma = new PrismaClient();
+// Demo customer data
+const demoCustomers: Customer[] = [
+  {
+    id: '1',
+    name: 'John Smith',
+    email: 'john@example.com',
+    company: 'Tech Corp',
+    status: 'ACTIVE',
+    phone: '+1 (555) 123-4567',
+    tags: [{ id: '1', name: 'VIP' }, { id: '2', name: 'Enterprise' }],
+    createdAt: new Date('2024-01-15').toISOString(),
+    notes: [
+      { id: '1', content: 'Initial meeting went well', createdAt: new Date('2024-01-15').toISOString() },
+      { id: '2', content: 'Interested in enterprise plan', createdAt: new Date('2024-01-16').toISOString() }
+    ]
+  },
+  {
+    id: '2',
+    name: 'Sarah Johnson',
+    email: 'sarah@example.com',
+    company: 'Design Studio',
+    status: 'PROSPECT',
+    phone: '+1 (555) 234-5678',
+    tags: [{ id: '3', name: 'SMB' }],
+    createdAt: new Date('2024-02-01').toISOString(),
+    notes: [
+      { id: '3', content: 'Requested pricing information', createdAt: new Date('2024-02-01').toISOString() }
+    ]
+  },
+  {
+    id: '3',
+    name: 'Michael Brown',
+    email: 'michael@example.com',
+    company: 'Marketing Inc',
+    status: 'LOST',
+    phone: '+1 (555) 345-6789',
+    tags: [{ id: '4', name: 'Past Client' }],
+    createdAt: new Date('2024-01-20').toISOString(),
+    notes: [
+      { id: '4', content: 'Chose competitor solution', createdAt: new Date('2024-01-20').toISOString() }
+    ]
+  },
+  {
+    id: '4',
+    name: 'Emma Wilson',
+    email: 'emma@example.com',
+    company: 'Retail Solutions',
+    status: 'ACTIVE',
+    phone: '+1 (555) 456-7890',
+    tags: [{ id: '5', name: 'Retail' }, { id: '6', name: 'Priority' }],
+    createdAt: new Date('2024-02-10').toISOString(),
+    notes: [
+      { id: '5', content: 'Successful implementation', createdAt: new Date('2024-02-10').toISOString() }
+    ]
+  },
+  {
+    id: '5',
+    name: 'David Lee',
+    email: 'david@example.com',
+    company: 'Healthcare Plus',
+    status: 'PROSPECT',
+    phone: '+1 (555) 567-8901',
+    tags: [{ id: '7', name: 'Healthcare' }],
+    createdAt: new Date('2024-02-15').toISOString(),
+    notes: [
+      { id: '6', content: 'Scheduled demo next week', createdAt: new Date('2024-02-15').toISOString() }
+    ]
+  }
+];
 
 /**
  * GET /api/customers
@@ -34,29 +101,7 @@ const prisma = new PrismaClient();
  * @throws {500} If database operation fails
  */
 export async function GET() {
-  try {
-    // Verify authentication
-    const session = await getServerSession();
-
-    if (!session) {
-      return new NextResponse('Unauthorized', { status: 401 });
-    }
-
-    // Fetch customers with related data
-    const customers = await prisma.customer.findMany({
-      include: {
-        tags: true,
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
-
-    return NextResponse.json(customers);
-  } catch (error) {
-    console.error('Error fetching customers:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
-  }
+  return NextResponse.json(demoCustomers);
 }
 
 /**
@@ -83,47 +128,14 @@ export async function GET() {
  */
 export async function POST(request: Request) {
   try {
-    // Verify authentication and get user
-    const session = await getServerSession();
-
-    if (!session?.user?.email) {
-      return new NextResponse('Unauthorized', { status: 401 });
-    }
-
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-    });
-
-    if (!user) {
-      return new NextResponse('User not found', { status: 404 });
-    }
-
-    // Parse and validate request data
     const data = await request.json();
-    const { name, email, phone, company, status, tags } = data;
-
-    // Create customer with associated tags
-    const customer = await prisma.customer.create({
-      data: {
-        name,
-        email,
-        phone,
-        company,
-        status,
-        userId: user.id,
-        tags: {
-          connectOrCreate: tags.map((tag: string) => ({
-            where: { name: tag },
-            create: { name: tag },
-          })),
-        },
-      },
-      include: {
-        tags: true,
-      },
-    });
-
-    return NextResponse.json(customer);
+    const newCustomer = {
+      id: (demoCustomers.length + 1).toString(),
+      ...data,
+      createdAt: new Date().toISOString(),
+    };
+    
+    return NextResponse.json(newCustomer);
   } catch (error) {
     console.error('Error creating customer:', error);
     return new NextResponse('Internal Server Error', { status: 500 });

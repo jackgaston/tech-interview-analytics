@@ -1,98 +1,67 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { PrismaClient } from '@prisma/client';
+import { demoCustomers } from '../../data';
 
-const prisma = new PrismaClient();
-
-interface RouteParams {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(request: Request, { params }: RouteParams) {
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
-    const session = await getServerSession();
-
-    if (!session) {
-      return new NextResponse('Unauthorized', { status: 401 });
-    }
-
-    const customer = await prisma.customer.findUnique({
-      where: { id: params.id },
-      include: {
-        tags: true,
-        notes: {
-          include: {
-            createdBy: true,
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-        },
-      },
-    });
-
+    const customer = demoCustomers.find(c => c.id === params.id);
+    
     if (!customer) {
-      return new NextResponse('Customer not found', { status: 404 });
+      return new NextResponse(null, { status: 404 });
     }
 
     return NextResponse.json(customer);
   } catch (error) {
     console.error('Error fetching customer:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    return new NextResponse(null, { status: 500 });
   }
 }
 
-export async function PATCH(request: Request, { params }: RouteParams) {
+export async function PATCH(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
-    const session = await getServerSession();
-
-    if (!session) {
-      return new NextResponse('Unauthorized', { status: 401 });
+    const body = await request.json();
+    const customerIndex = demoCustomers.findIndex(c => c.id === params.id);
+    
+    if (customerIndex === -1) {
+      return new NextResponse(null, { status: 404 });
     }
 
-    const data = await request.json();
-    const { status } = data;
+    const updatedCustomer = {
+      ...demoCustomers[customerIndex],
+      ...body,
+      id: params.id, // Ensure ID doesn't change
+    };
 
-    const customer = await prisma.customer.update({
-      where: { id: params.id },
-      data: { status },
-      include: {
-        tags: true,
-        notes: {
-          include: {
-            createdBy: true,
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-        },
-      },
-    });
-
-    return NextResponse.json(customer);
+    demoCustomers[customerIndex] = updatedCustomer;
+    
+    return NextResponse.json(updatedCustomer);
   } catch (error) {
     console.error('Error updating customer:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    return new NextResponse(null, { status: 500 });
   }
 }
 
-export async function DELETE(request: Request, { params }: RouteParams) {
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
-    const session = await getServerSession();
-
-    if (!session) {
-      return new NextResponse('Unauthorized', { status: 401 });
+    const customerIndex = demoCustomers.findIndex(c => c.id === params.id);
+    
+    if (customerIndex === -1) {
+      return new NextResponse(null, { status: 404 });
     }
 
-    await prisma.customer.delete({
-      where: { id: params.id },
-    });
-
-    return new NextResponse(null, { status: 204 });
+    demoCustomers.splice(customerIndex, 1);
+    
+    return new NextResponse(null, { status: 200 });
   } catch (error) {
     console.error('Error deleting customer:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    return new NextResponse(null, { status: 500 });
   }
 } 
