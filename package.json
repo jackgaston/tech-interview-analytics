@@ -1,8 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "jackgaston",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+=======
+  "name": "tech-interview-analytics",
+  "version": "0.1.0",
+  "private": true,
+>>>>>>> c39ecca (chore: rename project to Tech Interview Analytics and update README)
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev"
